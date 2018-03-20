@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>0</key>
+	<dict>
+		<key>title</key>
+		<string>Burlington Bike Path</string>
+		<key>body</key>
+		<string>Converted from the Central Vermont Railway to a bike path in the 1970s, this easy trail crosses through beaches and parks and offers great views of Lake Champlain, the Adirondacks and the city.</string>
+		<key>order</key>
+		<integer>0</integer>
+		<key>lat</key>
+		<real>44.479504</real>
+		<key>lon</key>
+		<real>-73.2226009</real>
+		<key>image</key>
+		<string>burlington-bike-path.jpg</string>
+	</dict>
+</dict>
+</plist>
