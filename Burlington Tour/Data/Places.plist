@@ -17,5 +17,35 @@
 		<key>image</key>
 		<string>burlington-bike-path.jpg</string>
 	</dict>
+	<key>1</key>
+	<dict>
+		<key>title</key>
+		<string>Church Street Marketplace</string>
+		<key>body</key>
+		<string>Downtown Burlington Vermont&apos;s award-winning open air mall is a hub of activity where you&apos;ll find historical architecture, year-round festivals, street entertainers, music, over 100 places to shop and dine, and even quiet places to ponder. We invite you find out about exclusive shopping, dining and events in downtown Burlington as well as to explore the area!</string>
+		<key>order</key>
+		<integer>0</integer>
+		<key>lat</key>
+		<real>44.4780886</real>
+		<key>lon</key>
+		<real>-73.2127194</real>
+		<key>image</key>
+		<string>church.jpg</string>
+	</dict>
+	<key>2</key>
+	<dict>
+		<key>title</key>
+		<string>Oakledge</string>
+		<key>body</key>
+		<string>New park located south of downtown on the waterfront.</string>
+		<key>order</key>
+		<integer>0</integer>
+		<key>lat</key>
+		<real>44.4559885</real>
+		<key>lon</key>
+		<real>-73.22767930000001</real>
+		<key>image</key>
+		<string>oakledge.jpg</string>
+	</dict>
 </dict>
 </plist>

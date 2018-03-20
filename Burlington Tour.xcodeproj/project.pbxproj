@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A0BFB5D2061B03A00165837 /* church.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1A0BFB5C2061B03A00165837 /* church.jpg */; };
+		1A0BFB5F2061B17300165837 /* oakledge.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1A0BFB5E2061B17300165837 /* oakledge.jpg */; };
+		1A0C3FB4206189E8006AC1FF /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0C3FB2206189E8006AC1FF /* PlaceCell.swift */; };
+		1A0C3FB5206189E8006AC1FF /* PlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A0C3FB3206189E8006AC1FF /* PlaceCell.xib */; };
 		1A30C1A1204F4D2100828FF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A30C1A0204F4D2100828FF1 /* AppDelegate.swift */; };
 		1A30C1A8204F4D2100828FF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A30C1A6204F4D2100828FF1 /* Main.storyboard */; };
 		1A30C1AA204F4D2100828FF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A30C1A9204F4D2100828FF1 /* Assets.xcassets */; };
@@ -20,6 +24,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A0BFB5C2061B03A00165837 /* church.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = church.jpg; sourceTree = "<group>"; };
+		1A0BFB5E2061B17300165837 /* oakledge.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = oakledge.jpg; sourceTree = "<group>"; };
+		1A0C3FB2206189E8006AC1FF /* PlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
+		1A0C3FB3206189E8006AC1FF /* PlaceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceCell.xib; sourceTree = "<group>"; };
 		1A30C19D204F4D2100828FF1 /* Burlington Tour.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Burlington Tour.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A30C1A0204F4D2100828FF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A30C1A7204F4D2100828FF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -45,6 +53,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A0C3FB1206189C5006AC1FF /* TableCells */ = {
+			isa = PBXGroup;
+			children = (
+				1A0C3FB2206189E8006AC1FF /* PlaceCell.swift */,
+				1A0C3FB3206189E8006AC1FF /* PlaceCell.xib */,
+			);
+			path = TableCells;
+			sourceTree = "<group>";
+		};
+		1A0C3FB620619673006AC1FF /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				1A0BFB5E2061B17300165837 /* oakledge.jpg */,
+				1A0BFB5C2061B03A00165837 /* church.jpg */,
+				1AC9C7882060B20B00DB5D40 /* burlington-bike-path.jpg */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		1A30C194204F4D2100828FF1 = {
 			isa = PBXGroup;
 			children = (
@@ -64,7 +91,8 @@
 		1A30C19F204F4D2100828FF1 /* Burlington Tour */ = {
 			isa = PBXGroup;
 			children = (
-				1AC9C7882060B20B00DB5D40 /* burlington-bike-path.jpg */,
+				1A0C3FB620619673006AC1FF /* Images */,
+				1A0C3FB1206189C5006AC1FF /* TableCells */,
 				1AC9C7852060B16200DB5D40 /* ViewControllers */,
 				1ACFCA3E2060A9A500A749B7 /* Data */,
 				1ACFCA372060A21C00A749B7 /* Models */,
@@ -73,7 +101,6 @@
 				1A30C1A9204F4D2100828FF1 /* Assets.xcassets */,
 				1A30C1AB204F4D2100828FF1 /* LaunchScreen.storyboard */,
 				1A30C1AE204F4D2100828FF1 /* Info.plist */,
-				1ACFCA3C2060A66000A749B7 /* ItemStore.swift */,
 			);
 			path = "Burlington Tour";
 			sourceTree = "<group>";
@@ -90,6 +117,7 @@
 		1ACFCA372060A21C00A749B7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1ACFCA3C2060A66000A749B7 /* ItemStore.swift */,
 				1ACFCA382060A23200A749B7 /* Item.swift */,
 			);
 			path = Models;
@@ -162,11 +190,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A0BFB5D2061B03A00165837 /* church.jpg in Resources */,
 				1A30C1AD204F4D2100828FF1 /* LaunchScreen.storyboard in Resources */,
 				1A30C1AA204F4D2100828FF1 /* Assets.xcassets in Resources */,
 				1ACFCA402060A9CE00A749B7 /* Places.plist in Resources */,
+				1A0C3FB5206189E8006AC1FF /* PlaceCell.xib in Resources */,
 				1AC9C7892060B20B00DB5D40 /* burlington-bike-path.jpg in Resources */,
 				1A30C1A8204F4D2100828FF1 /* Main.storyboard in Resources */,
+				1A0BFB5F2061B17300165837 /* oakledge.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,6 +213,7 @@
 				1A30C1A1204F4D2100828FF1 /* AppDelegate.swift in Sources */,
 				1AC9C78B2060B8F200DB5D40 /* PlaceViewController.swift in Sources */,
 				1ACFCA3D2060A66000A749B7 /* ItemStore.swift in Sources */,
+				1A0C3FB4206189E8006AC1FF /* PlaceCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,12 +10,14 @@ import UIKit
 
 class PlacesTableViewController: UITableViewController {
     
-    var itemStore: ItemStore = ItemStore()
+    var itemStore: ItemStore!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        loadPlaces()
+        
+        let nib = UINib.init(nibName: "PlaceCell", bundle: nil)
+        self.tableView.register(nib, forCellReuseIdentifier: "PlaceCell")
+        tableView.rowHeight = CGFloat(100)
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,10 +30,15 @@ class PlacesTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "standardCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PlaceCell", for: indexPath) as! PlaceCell
         let place = itemStore.places[indexPath.row]
-        cell.textLabel?.text = place.title
+        cell.CellLabel.text = place.title
+        cell.CellImage.image = UIImage(named: place.image)
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "placeDetailSegue", sender: indexPath.row)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -42,26 +49,6 @@ class PlacesTableViewController: UITableViewController {
                 pvc.navTitle = itemStore.places[selectedRow].title
                 pvc.lat = itemStore.places[selectedRow].lat
                 pvc.lon = itemStore.places[selectedRow].lon
-            }
-        }
-    }
-    
-    func loadPlaces() {
-        var place : Place
-        if let path = Bundle.main.path(forResource: "Places", ofType: "plist") {
-            if let dict = NSDictionary(contentsOfFile: path) as? [String: Any] {
-                for item in 0..<Array(dict).count {
-                    if let p = dict[String(item)] as? [String:AnyObject],
-                        let title = p["title"] as? String,
-                        let image = p["image"] as? String,
-                        let body = p["body"] as? String,
-                        let lat = p["lat"] as? Float,
-                        let lon = p["lon"] as? Float {
-                        
-                        place = Place(title: title, body: body, image: image, lat: lat, lon: lon)
-                        itemStore.places.append(place)
-                    }
-                }
             }
         }
     }
