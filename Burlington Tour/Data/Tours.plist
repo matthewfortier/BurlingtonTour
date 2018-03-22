@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>0</key>
+	<dict>
+		<key>order</key>
+		<integer>0</integer>
+		<key>title</key>
+		<string>Burlington Boat Cruise</string>
+		<key>file</key>
+		<string>video.mp4</string>
+		<key>type</key>
+		<string>video</string>
+	</dict>
+	<key>1</key>
+	<dict>
+		<key>order</key>
+		<integer>0</integer>
+		<key>title</key>
+		<string>Red Rocks</string>
+		<key>file</key>
+		<string>audio.mp3</string>
+		<key>type</key>
+		<string>audio</string>
+	</dict>
+</dict>
+</plist>

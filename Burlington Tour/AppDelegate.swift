@@ -20,9 +20,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let itemStore = ItemStore()
         
         let tabController = window!.rootViewController as! UITabBarController
-        let navController = tabController.viewControllers![0] as! UINavigationController
+        var navController = tabController.viewControllers![0] as! UINavigationController
         let placesController = navController.topViewController as! PlacesTableViewController
+        
+        navController = tabController.viewControllers![1] as! UINavigationController
+        let toursController = navController.topViewController as! ToursTableViewController
+        
         placesController.itemStore = itemStore
+        toursController.itemStore = itemStore
         
         return true
     }

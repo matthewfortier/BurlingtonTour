@@ -10,7 +10,6 @@ import UIKit
 
 class PlaceCell: UITableViewCell {
 
-    
     @IBOutlet weak var CellImage: UIImageView!
     @IBOutlet weak var CellLabel: UILabel!
     

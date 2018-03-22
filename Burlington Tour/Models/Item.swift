@@ -22,19 +22,28 @@ class Place: Item {
     var lon: Float
     var image: String
     
-    init(title: String, body: String, image: String, lat: Float, lon: Float) {
+    init(order: Int, title: String, body: String, image: String, lat: Float, lon: Float) {
+        self.order = order
         self.title = title
         self.body = body
         self.image = image
         self.lat = lat
         self.lon = lon
     }
+}
+
+class Tour: Item {
+    var order = -1
+    var title: String
     
-    init() {
-        self.title = ""
-        self.body = "blah blah"
-        self.image = ""
-        self.lat = 0.0
-        self.lon = 0.0
+    var file: String
+    var type: String
+    
+    init(order: Int, title: String, file: String, type: String) {
+        self.order = order
+        self.title = title
+        
+        self.file = file
+        self.type = type
     }
 }
