@@ -11,6 +11,7 @@ import Foundation
 class ItemStore {
     var places: [Place] = []
     var tours: [Tour] = []
+    var notes: [Note] = []
     
     init() {
         loadPlaces()

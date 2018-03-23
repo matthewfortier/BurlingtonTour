@@ -47,3 +47,19 @@ class Tour: Item {
         self.type = type
     }
 }
+
+class Note: Item {
+    var title: String
+    var order = -1
+    
+    var body: String
+    var file: String = ""
+    
+    init(order: Int, title: String, file: String, body: String) {
+        self.order = order
+        self.title = title
+        
+        self.file = file
+        self.body = body
+    }
+}

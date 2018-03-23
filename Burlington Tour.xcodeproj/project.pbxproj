@@ -19,6 +19,10 @@
 		1A30C1AD204F4D2100828FF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A30C1AB204F4D2100828FF1 /* LaunchScreen.storyboard */; };
 		1A6ABE8D2064298100534B6D /* audio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1A6ABE8B2064298000534B6D /* audio.mp3 */; };
 		1A6ABE8E2064298100534B6D /* video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1A6ABE8C2064298100534B6D /* video.mp4 */; };
+		1A6ABE9020642CDA00534B6D /* TourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6ABE8F20642CDA00534B6D /* TourViewController.swift */; };
+		1A6ABE922064304100534B6D /* NotesTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6ABE912064304100534B6D /* NotesTableTableViewController.swift */; };
+		1A6ABE94206430B000534B6D /* Notes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1A6ABE93206430B000534B6D /* Notes.plist */; };
+		1A6ABE96206437AE00534B6D /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6ABE95206437AE00534B6D /* NoteViewController.swift */; };
 		1AC9C7872060B17900DB5D40 /* PlacesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC9C7862060B17900DB5D40 /* PlacesTableViewController.swift */; };
 		1AC9C7892060B20B00DB5D40 /* burlington-bike-path.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1AC9C7882060B20B00DB5D40 /* burlington-bike-path.jpg */; };
 		1AC9C78B2060B8F200DB5D40 /* PlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC9C78A2060B8F200DB5D40 /* PlaceViewController.swift */; };
@@ -42,6 +46,10 @@
 		1A30C1AE204F4D2100828FF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A6ABE8B2064298000534B6D /* audio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = audio.mp3; sourceTree = "<group>"; };
 		1A6ABE8C2064298100534B6D /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video.mp4; sourceTree = "<group>"; };
+		1A6ABE8F20642CDA00534B6D /* TourViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourViewController.swift; sourceTree = "<group>"; };
+		1A6ABE912064304100534B6D /* NotesTableTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTableTableViewController.swift; sourceTree = "<group>"; };
+		1A6ABE93206430B000534B6D /* Notes.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Notes.plist; sourceTree = "<group>"; };
+		1A6ABE95206437AE00534B6D /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 		1AC9C7862060B17900DB5D40 /* PlacesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesTableViewController.swift; sourceTree = "<group>"; };
 		1AC9C7882060B20B00DB5D40 /* burlington-bike-path.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "burlington-bike-path.jpg"; sourceTree = "<group>"; };
 		1AC9C78A2060B8F200DB5D40 /* PlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +127,9 @@
 				1AC9C7862060B17900DB5D40 /* PlacesTableViewController.swift */,
 				1AC9C78A2060B8F200DB5D40 /* PlaceViewController.swift */,
 				1A0BFB602061BAA000165837 /* ToursTableViewController.swift */,
+				1A6ABE8F20642CDA00534B6D /* TourViewController.swift */,
+				1A6ABE912064304100534B6D /* NotesTableTableViewController.swift */,
+				1A6ABE95206437AE00534B6D /* NoteViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -139,6 +150,7 @@
 				1A6ABE8C2064298100534B6D /* video.mp4 */,
 				1ACFCA3F2060A9CE00A749B7 /* Places.plist */,
 				1A0BFB642061BCFD00165837 /* Tours.plist */,
+				1A6ABE93206430B000534B6D /* Notes.plist */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -204,6 +216,7 @@
 			files = (
 				1A0BFB5D2061B03A00165837 /* church.jpg in Resources */,
 				1A0BFB652061BCFD00165837 /* Tours.plist in Resources */,
+				1A6ABE94206430B000534B6D /* Notes.plist in Resources */,
 				1A30C1AD204F4D2100828FF1 /* LaunchScreen.storyboard in Resources */,
 				1A30C1AA204F4D2100828FF1 /* Assets.xcassets in Resources */,
 				1ACFCA402060A9CE00A749B7 /* Places.plist in Resources */,
@@ -227,8 +240,11 @@
 				1AC9C7872060B17900DB5D40 /* PlacesTableViewController.swift in Sources */,
 				1A0BFB612061BAA000165837 /* ToursTableViewController.swift in Sources */,
 				1A30C1A1204F4D2100828FF1 /* AppDelegate.swift in Sources */,
+				1A6ABE9020642CDA00534B6D /* TourViewController.swift in Sources */,
 				1AC9C78B2060B8F200DB5D40 /* PlaceViewController.swift in Sources */,
 				1ACFCA3D2060A66000A749B7 /* ItemStore.swift in Sources */,
+				1A6ABE922064304100534B6D /* NotesTableTableViewController.swift in Sources */,
+				1A6ABE96206437AE00534B6D /* NoteViewController.swift in Sources */,
 				1A0C3FB4206189E8006AC1FF /* PlaceCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

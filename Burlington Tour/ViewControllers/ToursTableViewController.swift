@@ -7,15 +7,10 @@
 //
 
 import UIKit
-import AVKit
-import AVFoundation
 
 class ToursTableViewController: UITableViewController {
     
     var itemStore: ItemStore!
-    
-    var playerviewcontroller = AVPlayerViewController()
-    var playerview = AVPlayer ()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,20 +28,7 @@ class ToursTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //performSegue(withIdentifier: "tourDetailSegue", sender: indexPath.row)
-        
-        let file = itemStore.tours[indexPath.row].file
-        
-        guard let path = Bundle.main.path(forAuxiliaryExecutable: file) else {
-            debugPrint("video.m4v not found")
-            return
-        }
-        let player = AVPlayer(url: URL(fileURLWithPath: path))
-        let playerController = AVPlayerViewController()
-        playerController.player = player
-        present(playerController, animated: true) {
-            player.play()
-        }
+        performSegue(withIdentifier: "tourDetailSegue", sender: indexPath.row)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -62,4 +44,14 @@ class ToursTableViewController: UITableViewController {
         
         return cell
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "tourDetailSegue" {
+            if let tvc = segue.destination as? TourViewController, let selectedRow = tableView.indexPathForSelectedRow?.row {
+                tvc.tourTitle = itemStore.tours[selectedRow].title
+                tvc.file = itemStore.tours[selectedRow].file
+            }
+        }
+    }
+
 }

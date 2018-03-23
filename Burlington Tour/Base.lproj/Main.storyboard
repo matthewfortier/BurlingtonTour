@@ -199,10 +199,21 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Tours" id="wwd-U6-kUc"/>
+                    <connections>
+                        <segue destination="kgP-oZ-t40" kind="show" identifier="tourDetailSegue" id="WO6-Z3-S9f"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9pk-RP-jOS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1737" y="-455"/>
+        </scene>
+        <!--AV Player View Controller-->
+        <scene sceneID="50V-fO-Lc3">
+            <objects>
+                <avPlayerViewController videoGravity="AVLayerVideoGravityResizeAspect" id="kgP-oZ-t40" customClass="TourViewController" customModule="Burlington_Tour" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J1I-AM-NPU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2529" y="-454"/>
         </scene>
         <!--Notes Nav Controller-->
         <scene sceneID="XdK-lR-Lg4">
@@ -224,7 +235,7 @@
         <!--Notes-->
         <scene sceneID="wuQ-5s-7Qr">
             <objects>
-                <tableViewController id="Gyu-G1-gt3" sceneMemberID="viewController">
+                <tableViewController id="Gyu-G1-gt3" customClass="NotesTableTableViewController" customModule="Burlington_Tour" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="2N6-Fe-8QH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -244,11 +255,93 @@
                             <outlet property="delegate" destination="Gyu-G1-gt3" id="n8J-dN-Imc"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Notes" id="WQO-sz-73Y"/>
+                    <navigationItem key="navigationItem" title="Notes" id="WQO-sz-73Y">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="5bQ-YE-d7S">
+                            <connections>
+                                <action selector="createNote:" destination="Gyu-G1-gt3" id="W6u-He-kNb"/>
+                                <segue destination="90u-cB-omB" kind="show" id="3tz-L7-X82"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iTb-AO-eOd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1737" y="1027"/>
+        </scene>
+        <!--Note View Controller-->
+        <scene sceneID="xXj-b0-lHo">
+            <objects>
+                <viewController id="90u-cB-omB" customClass="NoteViewController" customModule="Burlington_Tour" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tIl-DA-z5b">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="u0c-LK-5GW">
+                                <rect key="frame" x="0.0" y="64" width="375" height="150"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="70p-ji-YYy">
+                                        <rect key="frame" x="0.0" y="0.0" width="187.5" height="150"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7RL-Vj-eiN">
+                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="120"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DaF-wk-Kba">
+                                                <rect key="frame" x="0.0" y="120" width="187.5" height="30"/>
+                                                <state key="normal" title="Upload Photo"/>
+                                                <connections>
+                                                    <action selector="openPhotoGallery:" destination="90u-cB-omB" eventType="touchUpInside" id="5a8-dF-KSU"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WxC-UA-UBZ">
+                                        <rect key="frame" x="187.5" y="0.0" width="187.5" height="150"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="4BH-KF-9jE"/>
+                                </constraints>
+                            </stackView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="O3H-bb-UQM">
+                                <rect key="frame" x="0.0" y="214" width="374" height="356"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aPd-W7-Te7">
+                                <rect key="frame" x="170" y="580" width="34" height="30"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveNote:" destination="90u-cB-omB" eventType="touchUpInside" id="yDs-eV-oBt"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="u0c-LK-5GW" firstAttribute="leading" secondItem="Zrs-xu-qs7" secondAttribute="leading" id="6qX-bX-0G9"/>
+                            <constraint firstItem="O3H-bb-UQM" firstAttribute="centerX" secondItem="Zrs-xu-qs7" secondAttribute="centerX" id="85Y-OU-zFW"/>
+                            <constraint firstItem="Zrs-xu-qs7" firstAttribute="bottom" secondItem="aPd-W7-Te7" secondAttribute="bottom" constant="8" id="9oI-vv-CWu"/>
+                            <constraint firstItem="u0c-LK-5GW" firstAttribute="centerX" secondItem="Zrs-xu-qs7" secondAttribute="centerX" id="Bpm-Dw-gFe"/>
+                            <constraint firstItem="u0c-LK-5GW" firstAttribute="top" secondItem="Zrs-xu-qs7" secondAttribute="top" id="MS6-yB-Odk"/>
+                            <constraint firstItem="Zrs-xu-qs7" firstAttribute="trailing" secondItem="u0c-LK-5GW" secondAttribute="trailing" id="af8-e3-cgd"/>
+                            <constraint firstItem="O3H-bb-UQM" firstAttribute="top" secondItem="u0c-LK-5GW" secondAttribute="bottom" id="b0f-dL-Dsz"/>
+                            <constraint firstItem="aPd-W7-Te7" firstAttribute="centerX" secondItem="Zrs-xu-qs7" secondAttribute="centerX" id="gUl-Ll-QJf"/>
+                            <constraint firstItem="O3H-bb-UQM" firstAttribute="leading" secondItem="Zrs-xu-qs7" secondAttribute="leading" id="hem-ix-xAE"/>
+                            <constraint firstItem="aPd-W7-Te7" firstAttribute="top" secondItem="O3H-bb-UQM" secondAttribute="bottom" constant="10" id="pld-cO-H7a"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Zrs-xu-qs7"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="WxC-UA-UBZ" id="qdq-8v-Qqu"/>
+                        <outlet property="titleTextField" destination="7RL-Vj-eiN" id="FwN-Vh-nJr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QdT-M1-goF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2474" y="1027"/>
         </scene>
         <!--Links Nav Controller-->
         <scene sceneID="3gG-Mr-5r6">
