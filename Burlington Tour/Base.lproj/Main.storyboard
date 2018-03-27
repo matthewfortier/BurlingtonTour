@@ -71,7 +71,9 @@
                             <outlet property="delegate" destination="Te9-0s-sOt" id="dus-2E-Kke"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Sights" id="yxJ-dW-7Eu"/>
+                    <navigationItem key="navigationItem" title="Sights" id="yxJ-dW-7Eu">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="5fq-dm-7yk"/>
+                    </navigationItem>
                     <connections>
                         <segue destination="cJg-xC-WgM" kind="show" identifier="placeDetailSegue" id="NMj-sv-2XU"/>
                     </connections>
@@ -89,7 +91,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QRR-Kp-eih">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="510"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="RlH-tP-cWN">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
@@ -135,6 +137,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nSg-oa-geS"/>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="Body" destination="daM-cF-ptt" id="H1p-JX-P8b"/>
                         <outlet property="Image" destination="50a-YC-avG" id="ipz-TE-QE1"/>
@@ -235,13 +239,13 @@
         <!--Notes-->
         <scene sceneID="wuQ-5s-7Qr">
             <objects>
-                <tableViewController id="Gyu-G1-gt3" customClass="NotesTableTableViewController" customModule="Burlington_Tour" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Gyu-G1-gt3" customClass="NotesTableViewController" customModule="Burlington_Tour" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="2N6-Fe-8QH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ylN-Ha-0Cg">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NoteCell" id="ylN-Ha-0Cg">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ylN-Ha-0Cg" id="jpX-JR-iA8">
@@ -258,8 +262,7 @@
                     <navigationItem key="navigationItem" title="Notes" id="WQO-sz-73Y">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="5bQ-YE-d7S">
                             <connections>
-                                <action selector="createNote:" destination="Gyu-G1-gt3" id="W6u-He-kNb"/>
-                                <segue destination="90u-cB-omB" kind="show" id="3tz-L7-X82"/>
+                                <segue destination="90u-cB-omB" kind="show" identifier="createNoteSegue" id="3tz-L7-X82"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -282,14 +285,17 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="70p-ji-YYy">
                                         <rect key="frame" x="0.0" y="0.0" width="187.5" height="150"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7RL-Vj-eiN">
-                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="120"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7RL-Vj-eiN">
+                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="d19-2n-Mf9"/>
+                                                </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DaF-wk-Kba">
-                                                <rect key="frame" x="0.0" y="120" width="187.5" height="30"/>
+                                                <rect key="frame" x="0.0" y="40" width="187.5" height="110"/>
                                                 <state key="normal" title="Upload Photo"/>
                                                 <connections>
                                                     <action selector="openPhotoGallery:" destination="90u-cB-omB" eventType="touchUpInside" id="5a8-dF-KSU"/>
@@ -297,7 +303,7 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WxC-UA-UBZ">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WxC-UA-UBZ">
                                         <rect key="frame" x="187.5" y="0.0" width="187.5" height="150"/>
                                     </imageView>
                                 </subviews>
@@ -335,6 +341,7 @@
                         <viewLayoutGuide key="safeArea" id="Zrs-xu-qs7"/>
                     </view>
                     <connections>
+                        <outlet property="bodyText" destination="O3H-bb-UQM" id="DPi-D8-Wyg"/>
                         <outlet property="imageView" destination="WxC-UA-UBZ" id="qdq-8v-Qqu"/>
                         <outlet property="titleTextField" destination="7RL-Vj-eiN" id="FwN-Vh-nJr"/>
                     </connections>

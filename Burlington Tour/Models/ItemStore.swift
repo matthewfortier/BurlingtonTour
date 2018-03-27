@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class ItemStore {
     var places: [Place] = []
@@ -16,6 +17,22 @@ class ItemStore {
     init() {
         loadPlaces()
         loadTours()
+        loadNotes()
+    }
+    
+    @discardableResult func createNote(title: String, image: UIImage, body: String) -> Note {
+        let newNote = Note(order: 0, title: title, file: image, body: body)
+        
+        notes.append(newNote)
+        UserDefaults.standard.set(notes, forKey: "notes")
+        
+        return newNote
+    }
+    
+    func loadNotes() {
+        if UserDefaults.standard.object(forKey: "notes") != nil {
+            notes = UserDefaults.standard.array(forKey: "notes") as! [Note]
+        }
     }
     
     func loadPlaces() {

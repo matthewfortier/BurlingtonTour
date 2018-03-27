@@ -26,8 +26,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navController = tabController.viewControllers![1] as! UINavigationController
         let toursController = navController.topViewController as! ToursTableViewController
         
+        navController = tabController.viewControllers![3] as! UINavigationController
+        let notesController = navController.topViewController as! NotesTableViewController
+        
         placesController.itemStore = itemStore
         toursController.itemStore = itemStore
+        notesController.itemStore = itemStore
+        //noteController.itemStore = itemStore
         
         return true
     }

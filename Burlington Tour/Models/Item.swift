@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol Item {
     var order: Int {get set}
@@ -53,13 +54,13 @@ class Note: Item {
     var order = -1
     
     var body: String
-    var file: String = ""
+    var image: UIImage
     
-    init(order: Int, title: String, file: String, body: String) {
+    init(order: Int, title: String, file: UIImage, body: String) {
         self.order = order
         self.title = title
         
-        self.file = file
+        self.image = file
         self.body = body
     }
 }

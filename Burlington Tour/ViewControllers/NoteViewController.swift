@@ -14,8 +14,13 @@ class NoteViewController: UIViewController, UINavigationControllerDelegate, UIIm
     var file: String!
     var body: String!
     
+    var itemStore: ItemStore!
+    
+    var chosenImage: UIImage!
+    
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var bodyText: UITextView!
     
     var imagePicker = UIImagePickerController()
 
@@ -38,10 +43,10 @@ class NoteViewController: UIViewController, UINavigationControllerDelegate, UIIm
     }
     
     func imagePickerController(_ picker: UIImagePickerController,
-                               didFinishPickingMediaWithInfo info: [String : AnyObject])
+                               didFinishPickingMediaWithInfo info: [String : Any])
     {
         print("Picked!")
-        let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage //2
+        chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage //2
         imageView.contentMode = .scaleAspectFit //3
         imageView.image = chosenImage //4
         dismiss(animated:true, completion: nil) //5
@@ -50,7 +55,8 @@ class NoteViewController: UIViewController, UINavigationControllerDelegate, UIIm
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func saveNote(_ sender: Any) {
+    @IBAction func saveNote(_ sender: UIButton) {
+        itemStore.createNote(title: titleTextField.text!, image: chosenImage, body: bodyText.text!)
     }
     
 }
