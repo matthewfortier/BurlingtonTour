@@ -30,7 +30,7 @@ class BurlingtonTourTests: XCTestCase {
         let currentIndex = 0
         let newIndex = 1
         
-        let image: UIImage = UIImage(named: "church")!
+        let image: UIImage = UIImage(named: "church.jpg")!
         
         store.createNote(title: "Test1", image: image, body: "Some string")
         store.createNote(title: "Test2", image: image, body: "Some string 2")
@@ -42,8 +42,13 @@ class BurlingtonTourTests: XCTestCase {
         XCTAssert(store.notes[newIndex].title == note.title)
     }
     
-    func testDeleteTableViewCell() {
-        XCTAssert(false)
+    func testDeleteNoteTableViewCell() {
+        let image: UIImage = UIImage(named: "church.jpg")!
+        let note = store.createNote(title: "Test1", image: image, body: "Some string")
+        
+        XCTAssert(store.notes.index(of: note) != nil)
+        store.removeNote(note)
+        XCTAssert(store.notes.index(of: note) == nil)
     }
     
 }

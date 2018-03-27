@@ -71,9 +71,7 @@
                             <outlet property="delegate" destination="Te9-0s-sOt" id="dus-2E-Kke"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Sights" id="yxJ-dW-7Eu">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="5fq-dm-7yk"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Sights" id="yxJ-dW-7Eu"/>
                     <connections>
                         <segue destination="cJg-xC-WgM" kind="show" identifier="placeDetailSegue" id="NMj-sv-2XU"/>
                     </connections>
@@ -91,10 +89,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QRR-Kp-eih">
-                                <rect key="frame" x="0.0" y="111" width="375" height="416"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="510"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="RlH-tP-cWN">
-                                        <rect key="frame" x="0.0" y="57" width="375" height="150"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="RlH-tP-cWN">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
                                         <subviews>
                                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="eIH-UD-M6S">
                                                 <rect key="frame" x="0.0" y="0.0" width="187.5" height="150"/>
@@ -107,8 +105,8 @@
                                             <constraint firstAttribute="height" constant="150" id="fak-KU-snZ"/>
                                         </constraints>
                                     </stackView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="daM-cF-ptt">
-                                        <rect key="frame" x="0.0" y="205" width="375" height="444"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="daM-cF-ptt">
+                                        <rect key="frame" x="0.0" y="150" width="375" height="444"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -131,21 +129,12 @@
                                 <rect key="frame" x="10" y="121" width="110" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yNI-xK-MXj">
-                                <rect key="frame" x="160" y="73" width="55" height="30"/>
-                                <state key="normal" title="Favorite"/>
-                                <connections>
-                                    <action selector="addFavorite:" destination="cJg-xC-WgM" eventType="touchUpInside" id="rsa-bZ-sGb"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="yNI-xK-MXj" firstAttribute="top" secondItem="nSg-oa-geS" secondAttribute="top" constant="9" id="2Cs-24-Fa4"/>
                             <constraint firstItem="QRR-Kp-eih" firstAttribute="centerX" secondItem="nSg-oa-geS" secondAttribute="centerX" id="2n1-80-27g"/>
-                            <constraint firstItem="yNI-xK-MXj" firstAttribute="centerX" secondItem="nSg-oa-geS" secondAttribute="centerX" id="6he-73-HDa"/>
                             <constraint firstItem="QRR-Kp-eih" firstAttribute="centerY" secondItem="nSg-oa-geS" secondAttribute="centerY" id="QgZ-hy-LZl"/>
-                            <constraint firstItem="QRR-Kp-eih" firstAttribute="top" secondItem="yNI-xK-MXj" secondAttribute="bottom" constant="8" id="bQc-wS-9xu"/>
+                            <constraint firstItem="QRR-Kp-eih" firstAttribute="top" secondItem="nSg-oa-geS" secondAttribute="top" id="clo-AT-MNd"/>
                             <constraint firstItem="nSg-oa-geS" firstAttribute="trailing" secondItem="QRR-Kp-eih" secondAttribute="trailing" id="gIB-c7-855"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nSg-oa-geS"/>
@@ -504,6 +493,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="3tz-L7-X82"/>
         <segue reference="WO6-Z3-S9f"/>
-        <segue reference="7uh-De-daK"/>
+        <segue reference="NMj-sv-2XU"/>
     </inferredMetricsTieBreakers>
 </document>

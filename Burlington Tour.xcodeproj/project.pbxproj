@@ -25,6 +25,7 @@
 		1AC4CEF7206A9C2700DF9968 /* church.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1AC4CEF4206A9C2600DF9968 /* church.jpg */; };
 		1AC4CEF8206A9C2700DF9968 /* oakledge.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1AC4CEF5206A9C2700DF9968 /* oakledge.jpg */; };
 		1AC4CEF9206A9C2700DF9968 /* burlington-bike-path.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1AC4CEF6206A9C2700DF9968 /* burlington-bike-path.jpg */; };
+		1AC4CF16206AC9E100DF9968 /* church.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1AC4CF15206AC9E100DF9968 /* church.jpg */; };
 		1AC9C7872060B17900DB5D40 /* PlacesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC9C7862060B17900DB5D40 /* PlacesTableViewController.swift */; };
 		1AC9C78B2060B8F200DB5D40 /* PlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC9C78A2060B8F200DB5D40 /* PlaceViewController.swift */; };
 		1ACFCA392060A23200A749B7 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACFCA382060A23200A749B7 /* Item.swift */; };
@@ -66,6 +67,7 @@
 		1AC4CEF4206A9C2600DF9968 /* church.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = church.jpg; path = "Burlington Tour/Images/church.jpg"; sourceTree = SOURCE_ROOT; };
 		1AC4CEF5206A9C2700DF9968 /* oakledge.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = oakledge.jpg; path = "Burlington Tour/Images/oakledge.jpg"; sourceTree = SOURCE_ROOT; };
 		1AC4CEF6206A9C2700DF9968 /* burlington-bike-path.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "burlington-bike-path.jpg"; path = "Burlington Tour/Images/burlington-bike-path.jpg"; sourceTree = SOURCE_ROOT; };
+		1AC4CF15206AC9E100DF9968 /* church.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = church.jpg; sourceTree = "<group>"; };
 		1AC9C7862060B17900DB5D40 /* PlacesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesTableViewController.swift; sourceTree = "<group>"; };
 		1AC9C78A2060B8F200DB5D40 /* PlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceViewController.swift; sourceTree = "<group>"; };
 		1ACFCA382060A23200A749B7 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 		1AC4CEE5206A9A2E00DF9968 /* BurlingtonTourTests */ = {
 			isa = PBXGroup;
 			children = (
+				1AC4CF15206AC9E100DF9968 /* church.jpg */,
 				1AC4CEE6206A9A2E00DF9968 /* BurlingtonTourTests.swift */,
 				1AC4CEE8206A9A2E00DF9968 /* Info.plist */,
 			);
@@ -293,6 +296,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AC4CF16206AC9E100DF9968 /* church.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -27,7 +27,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fa4-dX-MPp">
-                        <rect key="frame" x="133" y="39.5" width="42" height="21"/>
+                        <rect key="frame" x="133" y="39.5" width="179" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -36,6 +36,7 @@
                 <constraints>
                     <constraint firstItem="Op7-NQ-un0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="ciZ-Cj-9mB"/>
                     <constraint firstItem="Op7-NQ-un0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ldg-bb-g1b"/>
+                    <constraint firstAttribute="trailing" secondItem="fa4-dX-MPp" secondAttribute="trailing" constant="8" id="xIJ-GT-4zc"/>
                     <constraint firstItem="fa4-dX-MPp" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="xvf-5z-NZU"/>
                     <constraint firstItem="fa4-dX-MPp" firstAttribute="leading" secondItem="Op7-NQ-un0" secondAttribute="trailing" constant="8" id="zYV-vX-pbd"/>
                 </constraints>

@@ -94,10 +94,11 @@ class NoteViewController: UIViewController, UINavigationControllerDelegate, UIIm
                                didFinishPickingMediaWithInfo info: [String : Any])
     {
         print("Picked!")
-        image = info[UIImagePickerControllerOriginalImage] as! UIImage //2
-        imageView.contentMode = .scaleAspectFit //3
-        imageView.image = image //4
-        dismiss(animated:true, completion: nil) //5
+        image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = image
+        photoButton.setTitle("Change Photo", for: UIControlState.normal)
+        dismiss(animated:true, completion: nil)
     }
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)

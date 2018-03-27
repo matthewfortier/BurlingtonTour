@@ -17,7 +17,9 @@ class PlaceCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        CellLabel.adjustsFontForContentSizeCategory = true
+        //CellLabel.adjustsFontForContentSizeCategory = true
+        CellLabel.adjustsFontSizeToFitWidth = false
+        CellLabel.lineBreakMode = NSLineBreakMode.byTruncatingTail
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
