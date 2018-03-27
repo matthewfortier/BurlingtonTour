@@ -19,8 +19,8 @@ class ItemStore {
     init() {
         loadPlaces()
         loadTours()
-<<<<<<< HEAD
         loadNotes()
+        fillFavorites()
     }
     
     @discardableResult func createNote(title: String, image: UIImage, body: String) -> Note {
@@ -36,8 +36,6 @@ class ItemStore {
         if UserDefaults.standard.object(forKey: "notes") != nil {
             notes = UserDefaults.standard.array(forKey: "notes") as! [Note]
         }
-=======
-        fillFavorites()
     }
     //We can atleast fill an array with whatever we want to put here.
     func fillFavorites(){
@@ -59,7 +57,6 @@ class ItemStore {
     
     func addFavorite(newFav: AnyObject) {
         favoritesArray.append(newFav)
->>>>>>> 2be676522cbbfd1f55da0c4b7246f54a3720957f
     }
     
     func loadPlaces() {

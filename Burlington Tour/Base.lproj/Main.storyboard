@@ -90,13 +90,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-<<<<<<< HEAD
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QRR-Kp-eih">
                                 <rect key="frame" x="0.0" y="64" width="375" height="510"/>
-=======
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QRR-Kp-eih">
-                                <rect key="frame" x="0.0" y="111" width="375" height="463"/>
->>>>>>> 2be676522cbbfd1f55da0c4b7246f54a3720957f
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="RlH-tP-cWN">
                                         <rect key="frame" x="0.0" y="57" width="375" height="150"/>
