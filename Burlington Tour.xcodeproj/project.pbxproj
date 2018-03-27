@@ -29,6 +29,7 @@
 		1ACFCA392060A23200A749B7 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACFCA382060A23200A749B7 /* Item.swift */; };
 		1ACFCA3D2060A66000A749B7 /* ItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACFCA3C2060A66000A749B7 /* ItemStore.swift */; };
 		1ACFCA402060A9CE00A749B7 /* Places.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1ACFCA3F2060A9CE00A749B7 /* Places.plist */; };
+		48DBB0F42067E3390054FC5B /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DBB0F32067E3390054FC5B /* FavoritesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		1ACFCA382060A23200A749B7 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		1ACFCA3C2060A66000A749B7 /* ItemStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemStore.swift; sourceTree = "<group>"; };
 		1ACFCA3F2060A9CE00A749B7 /* Places.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Places.plist; sourceTree = "<group>"; };
+		48DBB0F32067E3390054FC5B /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 		1A30C194204F4D2100828FF1 = {
 			isa = PBXGroup;
 			children = (
+				1A0C3FB620619673006AC1FF /* Images */,
 				1A30C19F204F4D2100828FF1 /* Burlington Tour */,
 				1A30C19E204F4D2100828FF1 /* Products */,
 			);
@@ -107,7 +110,6 @@
 		1A30C19F204F4D2100828FF1 /* Burlington Tour */ = {
 			isa = PBXGroup;
 			children = (
-				1A0C3FB620619673006AC1FF /* Images */,
 				1A0C3FB1206189C5006AC1FF /* TableCells */,
 				1AC9C7852060B16200DB5D40 /* ViewControllers */,
 				1ACFCA3E2060A9A500A749B7 /* Data */,
@@ -124,6 +126,7 @@
 		1AC9C7852060B16200DB5D40 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				48DBB0F32067E3390054FC5B /* FavoritesTableViewController.swift */,
 				1AC9C7862060B17900DB5D40 /* PlacesTableViewController.swift */,
 				1AC9C78A2060B8F200DB5D40 /* PlaceViewController.swift */,
 				1A0BFB602061BAA000165837 /* ToursTableViewController.swift */,
@@ -246,6 +249,7 @@
 				1A6ABE922064304100534B6D /* NotesTableViewController.swift in Sources */,
 				1A6ABE96206437AE00534B6D /* NoteViewController.swift in Sources */,
 				1A0C3FB4206189E8006AC1FF /* PlaceCell.swift in Sources */,
+				48DBB0F42067E3390054FC5B /* FavoritesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,20 +10,38 @@ import UIKit
 import MapKit
 import CoreLocation
 
+
+
 class PlaceViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
+    //var delegate: ChildViewControllerDelegate?
     @IBOutlet weak var Image: UIImageView!
     @IBOutlet weak var Body: UITextView!
     @IBOutlet weak var Map: MKMapView!
+    
+    var itemStore: ItemStore!
+    
     var body: String = ""
     var image: String = ""
     var navTitle: String = ""
     var lat: Float = 0.0
     var lon: Float = 0.0
+    var fav: Bool = false
     
+    @IBAction func addFavorite(_ sender: UIButton) {
+        if (fav){
+            fav = false
+            sender.setTitle("Unfavorite", for: .normal)
+        }
+        else {
+            fav = true
+            sender.setTitle("Favorite", for: .normal)
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         Image.image = UIImage(named: image)
         Body.text = body
         
@@ -36,7 +54,7 @@ class PlaceViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         Map.showAnnotations(Map.annotations, animated: true)
         // Do any additional setup after loading the view.
     }
-    
+
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Errors " + error.localizedDescription)
     }

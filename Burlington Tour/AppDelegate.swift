@@ -20,11 +20,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let itemStore = ItemStore()
         
         let tabController = window!.rootViewController as! UITabBarController
+        
         var navController = tabController.viewControllers![0] as! UINavigationController
         let placesController = navController.topViewController as! PlacesTableViewController
-        
         navController = tabController.viewControllers![1] as! UINavigationController
-        let toursController = navController.topViewController as! ToursTableViewController
+        let toursController = navController.topViewController! as! ToursTableViewController
+        
+        navController = tabController.viewControllers![2] as! UINavigationController
+        let favoritesController = navController.topViewController as! FavoritesViewController
         
         navController = tabController.viewControllers![3] as! UINavigationController
         let notesController = navController.topViewController as! NotesTableViewController
@@ -33,7 +36,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         toursController.itemStore = itemStore
         notesController.itemStore = itemStore
         //noteController.itemStore = itemStore
-        
+
+        favoritesController.itemStore = itemStore
         return true
     }
 
