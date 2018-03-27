@@ -20,15 +20,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let itemStore = ItemStore()
         
         let tabController = window!.rootViewController as! UITabBarController
+        
         var navController = tabController.viewControllers![0] as! UINavigationController
         let placesController = navController.topViewController as! PlacesTableViewController
-        
         navController = tabController.viewControllers![1] as! UINavigationController
-        let toursController = navController.topViewController as! ToursTableViewController
+        let toursController = navController.topViewController! as! ToursTableViewController
+        
+        navController = tabController.viewControllers![2] as! UINavigationController
+        let favoritesController = navController.topViewController as! FavoritesViewController
+        
+  
         
         placesController.itemStore = itemStore
         toursController.itemStore = itemStore
-        
+        favoritesController.itemStore = itemStore
+       
         return true
     }
 

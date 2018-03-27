@@ -16,6 +16,8 @@
 		<real>-73.2226009</real>
 		<key>image</key>
 		<string>burlington-bike-path.jpg</string>
+		<key>fav</key>
+		<false/>
 	</dict>
 	<key>1</key>
 	<dict>
@@ -31,6 +33,8 @@
 		<real>-73.2127194</real>
 		<key>image</key>
 		<string>church.jpg</string>
+		<key>fav</key>
+		<false/>
 	</dict>
 	<key>2</key>
 	<dict>
@@ -46,6 +50,8 @@
 		<real>-73.22767930000001</real>
 		<key>image</key>
 		<string>oakledge.jpg</string>
+		<key>fav</key>
+		<true/>
 	</dict>
 </dict>
 </plist>

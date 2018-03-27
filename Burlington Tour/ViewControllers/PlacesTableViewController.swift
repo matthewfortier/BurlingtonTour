@@ -24,7 +24,7 @@ class PlacesTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return itemStore.places.count
     }
@@ -48,7 +48,8 @@ class PlacesTableViewController: UITableViewController {
                 pvc.body = itemStore.places[selectedRow].body
                 pvc.navTitle = itemStore.places[selectedRow].title
                 pvc.lat = itemStore.places[selectedRow].lat
-                pvc.lon = itemStore.places[selectedRow].lon
+                pvc.lon = itemStore.places[selectedRow].lon 
+                pvc.fav = itemStore.places[selectedRow].fav
             }
         }
     }

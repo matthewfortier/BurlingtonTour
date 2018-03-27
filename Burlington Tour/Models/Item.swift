@@ -21,14 +21,16 @@ class Place: Item {
     var lat: Float
     var lon: Float
     var image: String
+    var fav: Bool
     
-    init(order: Int, title: String, body: String, image: String, lat: Float, lon: Float) {
+    init(order: Int, title: String, body: String, image: String, lat: Float, lon: Float, fav: Bool) {
         self.order = order
         self.title = title
         self.body = body
         self.image = image
         self.lat = lat
         self.lon = lon
+        self.fav = fav
     }
 }
 
@@ -63,3 +65,4 @@ class Note: Item {
         self.body = body
     }
 }
+

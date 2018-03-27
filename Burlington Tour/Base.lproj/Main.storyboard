@@ -80,33 +80,33 @@
             </objects>
             <point key="canvasLocation" x="1737" y="-1258"/>
         </scene>
-        <!--Place View Controller-->
+        <!--Sight-->
         <scene sceneID="EfG-jw-hnR">
             <objects>
-                <viewController id="cJg-xC-WgM" customClass="PlaceViewController" customModule="Burlington_Tour" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Sight" id="cJg-xC-WgM" customClass="PlaceViewController" customModule="Burlington_Tour" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="H1t-G3-uUT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QRR-Kp-eih">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QRR-Kp-eih">
+                                <rect key="frame" x="0.0" y="111" width="375" height="463"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="RlH-tP-cWN">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="RlH-tP-cWN">
+                                        <rect key="frame" x="0.0" y="57" width="375" height="150"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="burlington-bike-path.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="50a-YC-avG">
-                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="150"/>
-                                            </imageView>
                                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="eIH-UD-M6S">
-                                                <rect key="frame" x="187.5" y="0.0" width="187.5" height="150"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="150"/>
                                             </mapView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="burlington-bike-path.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="50a-YC-avG">
+                                                <rect key="frame" x="187.5" y="0.0" width="187.5" height="150"/>
+                                            </imageView>
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="fak-KU-snZ"/>
                                         </constraints>
                                     </stackView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="daM-cF-ptt">
-                                        <rect key="frame" x="0.0" y="150" width="375" height="444"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="daM-cF-ptt">
+                                        <rect key="frame" x="0.0" y="205" width="375" height="444"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -125,16 +125,31 @@
                                     <constraint firstItem="daM-cF-ptt" firstAttribute="leading" secondItem="RlH-tP-cWN" secondAttribute="leading" id="t0L-tu-Ra9"/>
                                 </constraints>
                             </scrollView>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="GL4-Uc-d03">
+                                <rect key="frame" x="10" y="121" width="110" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yNI-xK-MXj">
+                                <rect key="frame" x="160" y="73" width="55" height="30"/>
+                                <state key="normal" title="Favorite"/>
+                                <connections>
+                                    <action selector="addFavorite:" destination="cJg-xC-WgM" eventType="touchUpInside" id="rsa-bZ-sGb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="yNI-xK-MXj" firstAttribute="top" secondItem="nSg-oa-geS" secondAttribute="top" constant="9" id="2Cs-24-Fa4"/>
                             <constraint firstItem="QRR-Kp-eih" firstAttribute="centerX" secondItem="nSg-oa-geS" secondAttribute="centerX" id="2n1-80-27g"/>
+                            <constraint firstItem="yNI-xK-MXj" firstAttribute="centerX" secondItem="nSg-oa-geS" secondAttribute="centerX" id="6he-73-HDa"/>
                             <constraint firstItem="QRR-Kp-eih" firstAttribute="centerY" secondItem="nSg-oa-geS" secondAttribute="centerY" id="QgZ-hy-LZl"/>
-                            <constraint firstItem="QRR-Kp-eih" firstAttribute="top" secondItem="nSg-oa-geS" secondAttribute="top" id="djN-pe-61e"/>
+                            <constraint firstItem="QRR-Kp-eih" firstAttribute="top" secondItem="yNI-xK-MXj" secondAttribute="bottom" constant="8" id="bQc-wS-9xu"/>
                             <constraint firstItem="nSg-oa-geS" firstAttribute="trailing" secondItem="QRR-Kp-eih" secondAttribute="trailing" id="gIB-c7-855"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nSg-oa-geS"/>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="Body" destination="daM-cF-ptt" id="H1p-JX-P8b"/>
                         <outlet property="Image" destination="50a-YC-avG" id="ipz-TE-QE1"/>
@@ -143,7 +158,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4du-OP-ghq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2521" y="-1258"/>
+            <point key="canvasLocation" x="2529" y="-1258"/>
         </scene>
         <!--Tours Nav Controller-->
         <scene sceneID="63H-Jf-sNX">
@@ -210,7 +225,10 @@
         <!--AV Player View Controller-->
         <scene sceneID="50V-fO-Lc3">
             <objects>
-                <avPlayerViewController videoGravity="AVLayerVideoGravityResizeAspect" id="kgP-oZ-t40" customClass="TourViewController" customModule="Burlington_Tour" customModuleProvider="target" sceneMemberID="viewController"/>
+                <avPlayerViewController videoGravity="AVLayerVideoGravityResizeAspect" id="kgP-oZ-t40" customClass="TourViewController" customModule="Burlington_Tour" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </avPlayerViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J1I-AM-NPU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2529" y="-454"/>
@@ -306,13 +324,13 @@
                                 </constraints>
                             </stackView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="O3H-bb-UQM">
-                                <rect key="frame" x="0.0" y="214" width="374" height="356"/>
+                                <rect key="frame" x="0.0" y="214" width="374" height="312"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aPd-W7-Te7">
-                                <rect key="frame" x="170" y="580" width="34" height="30"/>
+                                <rect key="frame" x="170" y="536" width="34" height="30"/>
                                 <state key="normal" title="Save"/>
                                 <connections>
                                     <action selector="saveNote:" destination="90u-cB-omB" eventType="touchUpInside" id="yDs-eV-oBt"/>
@@ -334,6 +352,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Zrs-xu-qs7"/>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="imageView" destination="WxC-UA-UBZ" id="qdq-8v-Qqu"/>
                         <outlet property="titleTextField" destination="7RL-Vj-eiN" id="FwN-Vh-nJr"/>
@@ -409,16 +429,32 @@
         <!--Favorites-->
         <scene sceneID="CVD-11-O7D">
             <objects>
-                <tableViewController id="YID-60-ctb" sceneMemberID="viewController">
+                <tableViewController id="YID-60-ctb" customClass="FavoritesViewController" customModule="Burlington_Tour" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="zof-hP-vc0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="aJR-8F-snf">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="favoriteCell" id="aJR-8F-snf">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aJR-8F-snf" id="vRs-16-VBG">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlaceCell" id="hlp-Bv-eZp">
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hlp-Bv-eZp" id="kwK-Dj-DIG">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NoteCell" id="Pxp-YW-9xk">
+                                <rect key="frame" x="0.0" y="116" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Pxp-YW-9xk" id="5ax-eh-ihb">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
@@ -430,6 +466,18 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Favorites" id="OMi-QZ-7n4"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="d6n-eW-nrd">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <action selector="refresh:" destination="YID-60-ctb" eventType="valueChanged" id="NDr-6x-0Ui"/>
+                        </connections>
+                    </refreshControl>
+                    <connections>
+                        <segue destination="kgP-oZ-t40" kind="show" identifier="favTourSegue" id="qhY-qF-eds"/>
+                        <segue destination="cJg-xC-WgM" kind="show" identifier="favPlaceSegue" id="7uh-De-daK"/>
+                        <segue destination="90u-cB-omB" kind="show" identifier="favNoteSegue" id="dYh-v0-4J9"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k7N-xm-sSx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -445,4 +493,9 @@
         <image name="steps" width="20" height="20"/>
         <image name="video" width="20" height="20"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="3tz-L7-X82"/>
+        <segue reference="qhY-qF-eds"/>
+        <segue reference="7uh-De-daK"/>
+    </inferredMetricsTieBreakers>
 </document>
