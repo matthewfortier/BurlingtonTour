@@ -11,9 +11,6 @@
 		1A0BFB652061BCFD00165837 /* Tours.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1A0BFB642061BCFD00165837 /* Tours.plist */; };
 		1A0C3FB4206189E8006AC1FF /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0C3FB2206189E8006AC1FF /* PlaceCell.swift */; };
 		1A0C3FB5206189E8006AC1FF /* PlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A0C3FB3206189E8006AC1FF /* PlaceCell.xib */; };
-		1A282C332069CF5300F158F1 /* church.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1A282C302069CF5200F158F1 /* church.jpg */; };
-		1A282C342069CF5300F158F1 /* oakledge.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1A282C312069CF5300F158F1 /* oakledge.jpg */; };
-		1A282C352069CF5300F158F1 /* burlington-bike-path.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1A282C322069CF5300F158F1 /* burlington-bike-path.jpg */; };
 		1A30C1A1204F4D2100828FF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A30C1A0204F4D2100828FF1 /* AppDelegate.swift */; };
 		1A30C1A8204F4D2100828FF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A30C1A6204F4D2100828FF1 /* Main.storyboard */; };
 		1A30C1AA204F4D2100828FF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A30C1A9204F4D2100828FF1 /* Assets.xcassets */; };
@@ -24,6 +21,10 @@
 		1A6ABE922064304100534B6D /* NotesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6ABE912064304100534B6D /* NotesTableViewController.swift */; };
 		1A6ABE94206430B000534B6D /* Notes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1A6ABE93206430B000534B6D /* Notes.plist */; };
 		1A6ABE96206437AE00534B6D /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6ABE95206437AE00534B6D /* NoteViewController.swift */; };
+		1AC4CEE7206A9A2E00DF9968 /* BurlingtonTourTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC4CEE6206A9A2E00DF9968 /* BurlingtonTourTests.swift */; };
+		1AC4CEF7206A9C2700DF9968 /* church.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1AC4CEF4206A9C2600DF9968 /* church.jpg */; };
+		1AC4CEF8206A9C2700DF9968 /* oakledge.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1AC4CEF5206A9C2700DF9968 /* oakledge.jpg */; };
+		1AC4CEF9206A9C2700DF9968 /* burlington-bike-path.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1AC4CEF6206A9C2700DF9968 /* burlington-bike-path.jpg */; };
 		1AC9C7872060B17900DB5D40 /* PlacesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC9C7862060B17900DB5D40 /* PlacesTableViewController.swift */; };
 		1AC9C78B2060B8F200DB5D40 /* PlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC9C78A2060B8F200DB5D40 /* PlaceViewController.swift */; };
 		1ACFCA392060A23200A749B7 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACFCA382060A23200A749B7 /* Item.swift */; };
@@ -32,14 +33,21 @@
 		48DBB0F42067E3390054FC5B /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DBB0F32067E3390054FC5B /* FavoritesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		1AC4CEE9206A9A2E00DF9968 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1A30C195204F4D2100828FF1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1A30C19C204F4D2100828FF1;
+			remoteInfo = "Burlington Tour";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		1A0BFB602061BAA000165837 /* ToursTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToursTableViewController.swift; sourceTree = "<group>"; };
 		1A0BFB642061BCFD00165837 /* Tours.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Tours.plist; sourceTree = "<group>"; };
 		1A0C3FB2206189E8006AC1FF /* PlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
 		1A0C3FB3206189E8006AC1FF /* PlaceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceCell.xib; sourceTree = "<group>"; };
-		1A282C302069CF5200F158F1 /* church.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = church.jpg; path = "Burlington Tour/Images/church.jpg"; sourceTree = SOURCE_ROOT; };
-		1A282C312069CF5300F158F1 /* oakledge.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = oakledge.jpg; path = "Burlington Tour/Images/oakledge.jpg"; sourceTree = SOURCE_ROOT; };
-		1A282C322069CF5300F158F1 /* burlington-bike-path.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "burlington-bike-path.jpg"; path = "Burlington Tour/Images/burlington-bike-path.jpg"; sourceTree = SOURCE_ROOT; };
 		1A30C19D204F4D2100828FF1 /* Burlington Tour.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Burlington Tour.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A30C1A0204F4D2100828FF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A30C1A7204F4D2100828FF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -52,6 +60,12 @@
 		1A6ABE912064304100534B6D /* NotesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTableViewController.swift; sourceTree = "<group>"; };
 		1A6ABE93206430B000534B6D /* Notes.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Notes.plist; sourceTree = "<group>"; };
 		1A6ABE95206437AE00534B6D /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
+		1AC4CEE4206A9A2E00DF9968 /* BurlingtonTourTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BurlingtonTourTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1AC4CEE6206A9A2E00DF9968 /* BurlingtonTourTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BurlingtonTourTests.swift; sourceTree = "<group>"; };
+		1AC4CEE8206A9A2E00DF9968 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1AC4CEF4206A9C2600DF9968 /* church.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = church.jpg; path = "Burlington Tour/Images/church.jpg"; sourceTree = SOURCE_ROOT; };
+		1AC4CEF5206A9C2700DF9968 /* oakledge.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = oakledge.jpg; path = "Burlington Tour/Images/oakledge.jpg"; sourceTree = SOURCE_ROOT; };
+		1AC4CEF6206A9C2700DF9968 /* burlington-bike-path.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "burlington-bike-path.jpg"; path = "Burlington Tour/Images/burlington-bike-path.jpg"; sourceTree = SOURCE_ROOT; };
 		1AC9C7862060B17900DB5D40 /* PlacesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesTableViewController.swift; sourceTree = "<group>"; };
 		1AC9C78A2060B8F200DB5D40 /* PlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceViewController.swift; sourceTree = "<group>"; };
 		1ACFCA382060A23200A749B7 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
@@ -62,6 +76,13 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		1A30C19A204F4D2100828FF1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1AC4CEE1206A9A2E00DF9968 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -80,21 +101,11 @@
 			path = TableCells;
 			sourceTree = "<group>";
 		};
-		1A0C3FB620619673006AC1FF /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				1A282C322069CF5300F158F1 /* burlington-bike-path.jpg */,
-				1A282C302069CF5200F158F1 /* church.jpg */,
-				1A282C312069CF5300F158F1 /* oakledge.jpg */,
-			);
-			path = Images;
-			sourceTree = "<group>";
-		};
 		1A30C194204F4D2100828FF1 = {
 			isa = PBXGroup;
 			children = (
-				1A0C3FB620619673006AC1FF /* Images */,
 				1A30C19F204F4D2100828FF1 /* Burlington Tour */,
+				1AC4CEE5206A9A2E00DF9968 /* BurlingtonTourTests */,
 				1A30C19E204F4D2100828FF1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -103,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				1A30C19D204F4D2100828FF1 /* Burlington Tour.app */,
+				1AC4CEE4206A9A2E00DF9968 /* BurlingtonTourTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -110,6 +122,7 @@
 		1A30C19F204F4D2100828FF1 /* Burlington Tour */ = {
 			isa = PBXGroup;
 			children = (
+				1AC4CEF3206A9C1300DF9968 /* Images */,
 				1A0C3FB1206189C5006AC1FF /* TableCells */,
 				1AC9C7852060B16200DB5D40 /* ViewControllers */,
 				1ACFCA3E2060A9A500A749B7 /* Data */,
@@ -121,6 +134,26 @@
 				1A30C1AE204F4D2100828FF1 /* Info.plist */,
 			);
 			path = "Burlington Tour";
+			sourceTree = "<group>";
+		};
+		1AC4CEE5206A9A2E00DF9968 /* BurlingtonTourTests */ = {
+			isa = PBXGroup;
+			children = (
+				1AC4CEE6206A9A2E00DF9968 /* BurlingtonTourTests.swift */,
+				1AC4CEE8206A9A2E00DF9968 /* Info.plist */,
+			);
+			path = BurlingtonTourTests;
+			sourceTree = "<group>";
+		};
+		1AC4CEF3206A9C1300DF9968 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				1AC4CEF6206A9C2700DF9968 /* burlington-bike-path.jpg */,
+				1AC4CEF4206A9C2600DF9968 /* church.jpg */,
+				1AC4CEF5206A9C2700DF9968 /* oakledge.jpg */,
+			);
+			name = Images;
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		1AC9C7852060B16200DB5D40 /* ViewControllers */ = {
@@ -178,6 +211,24 @@
 			productReference = 1A30C19D204F4D2100828FF1 /* Burlington Tour.app */;
 			productType = "com.apple.product-type.application";
 		};
+		1AC4CEE3206A9A2E00DF9968 /* BurlingtonTourTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1AC4CEED206A9A2E00DF9968 /* Build configuration list for PBXNativeTarget "BurlingtonTourTests" */;
+			buildPhases = (
+				1AC4CEE0206A9A2E00DF9968 /* Sources */,
+				1AC4CEE1206A9A2E00DF9968 /* Frameworks */,
+				1AC4CEE2206A9A2E00DF9968 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1AC4CEEA206A9A2E00DF9968 /* PBXTargetDependency */,
+			);
+			name = BurlingtonTourTests;
+			productName = BurlingtonTourTests;
+			productReference = 1AC4CEE4206A9A2E00DF9968 /* BurlingtonTourTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -191,6 +242,11 @@
 					1A30C19C204F4D2100828FF1 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+					};
+					1AC4CEE3206A9A2E00DF9968 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 1A30C19C204F4D2100828FF1;
 					};
 				};
 			};
@@ -208,6 +264,7 @@
 			projectRoot = "";
 			targets = (
 				1A30C19C204F4D2100828FF1 /* Burlington Tour */,
+				1AC4CEE3206A9A2E00DF9968 /* BurlingtonTourTests */,
 			);
 		};
 /* End PBXProject section */
@@ -218,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A0BFB652061BCFD00165837 /* Tours.plist in Resources */,
+				1AC4CEF9206A9C2700DF9968 /* burlington-bike-path.jpg in Resources */,
 				1A6ABE94206430B000534B6D /* Notes.plist in Resources */,
 				1A30C1AD204F4D2100828FF1 /* LaunchScreen.storyboard in Resources */,
 				1A30C1AA204F4D2100828FF1 /* Assets.xcassets in Resources */,
@@ -225,10 +283,16 @@
 				1A0C3FB5206189E8006AC1FF /* PlaceCell.xib in Resources */,
 				1A30C1A8204F4D2100828FF1 /* Main.storyboard in Resources */,
 				1A6ABE8E2064298100534B6D /* video.mp4 in Resources */,
+				1AC4CEF7206A9C2700DF9968 /* church.jpg in Resources */,
+				1AC4CEF8206A9C2700DF9968 /* oakledge.jpg in Resources */,
 				1A6ABE8D2064298100534B6D /* audio.mp3 in Resources */,
-				1A282C332069CF5300F158F1 /* church.jpg in Resources */,
-				1A282C352069CF5300F158F1 /* burlington-bike-path.jpg in Resources */,
-				1A282C342069CF5300F158F1 /* oakledge.jpg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1AC4CEE2206A9A2E00DF9968 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,7 +317,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1AC4CEE0206A9A2E00DF9968 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1AC4CEE7206A9A2E00DF9968 /* BurlingtonTourTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1AC4CEEA206A9A2E00DF9968 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1A30C19C204F4D2100828FF1 /* Burlington Tour */;
+			targetProxy = 1AC4CEE9206A9A2E00DF9968 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		1A30C1A6204F4D2100828FF1 /* Main.storyboard */ = {
@@ -390,7 +470,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Burlington Tour/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.matther2012.Burlington-Tour";
+				PRODUCT_BUNDLE_IDENTIFIER = com.matther2012.BurlingtonTour;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -404,10 +484,40 @@
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Burlington Tour/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.matther2012.Burlington-Tour";
+				PRODUCT_BUNDLE_IDENTIFIER = com.matther2012.BurlingtonTour;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		1AC4CEEB206A9A2E00DF9968 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = BurlingtonTourTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.matther2012.BurlingtonTourTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Burlington Tour.app/Burlington Tour";
+			};
+			name = Debug;
+		};
+		1AC4CEEC206A9A2E00DF9968 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = BurlingtonTourTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.matther2012.BurlingtonTourTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Burlington Tour.app/Burlington Tour";
 			};
 			name = Release;
 		};
@@ -428,6 +538,15 @@
 			buildConfigurations = (
 				1A30C1B2204F4D2100828FF1 /* Debug */,
 				1A30C1B3204F4D2100828FF1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1AC4CEED206A9A2E00DF9968 /* Build configuration list for PBXNativeTarget "BurlingtonTourTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1AC4CEEB206A9A2E00DF9968 /* Debug */,
+				1AC4CEEC206A9A2E00DF9968 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreText
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

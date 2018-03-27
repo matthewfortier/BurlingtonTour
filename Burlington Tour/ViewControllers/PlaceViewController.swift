@@ -10,8 +10,6 @@ import UIKit
 import MapKit
 import CoreLocation
 
-
-
 class PlaceViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     //var delegate: ChildViewControllerDelegate?
@@ -27,6 +25,38 @@ class PlaceViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     var lat: Float = 0.0
     var lon: Float = 0.0
     var fav: Bool = false
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    
+        setFavoriteButton(filled: false)
+    }
+    
+    func setFavoriteButton(filled: Bool) {
+        var buttonIcon: UIImage!
+        
+        buttonIcon = filled ? UIImage(named: "fav-filled") : UIImage(named: "fav")
+        
+        let rightBarButton = UIBarButtonItem(title: "Favorite", style: UIBarButtonItemStyle.done, target: self, action: #selector(PlaceViewController.addFavorite2))
+        rightBarButton.image = buttonIcon
+        
+        self.navigationItem.rightBarButtonItem = rightBarButton
+    }
+    
+    @objc func addFavorite2() {
+        if (fav){
+            fav = false
+            //sender.setTitle("Unfavorite", for: .normal)
+            setFavoriteButton(filled: false)
+        }
+        else {
+            fav = true
+            //sender.setTitle("Favorite", for: .normal)
+            setFavoriteButton(filled: true)
+            
+        }
+    }
+
     
     @IBAction func addFavorite(_ sender: UIButton) {
         if (fav){

@@ -28,11 +28,26 @@ class ItemStore {
         
         notes.append(newNote)
         
-        let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: notes)
-        UserDefaults.standard.set(encodedData, forKey: "notes")
-        UserDefaults.standard.synchronize()
+        syncNotes()
         
         return newNote
+    }
+    
+    func moveNote(from fromIndex: Int, to toIndex: Int) {
+        if fromIndex == toIndex {
+            return
+        }
+        
+        // Get reference to object being moved so you can re-insert it
+        let movedItem = notes[fromIndex]
+        
+        // Remove item from array
+        notes.remove(at: fromIndex)
+        
+        // Insert item in array at new location
+        notes.insert(movedItem, at: toIndex)
+        
+        syncNotes()
     }
     
     func updateNote(original: String, title: String, image: UIImage, body: String) -> Note {
@@ -47,11 +62,17 @@ class ItemStore {
             }
         }
         
-        let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: notes)
-        UserDefaults.standard.set(encodedData, forKey: "notes")
-        UserDefaults.standard.synchronize()
+        syncNotes()
         
         return note
+    }
+    
+    func removeNote(_ note: Note) {
+        if let index = notes.index(of: note) {
+            notes.remove(at: index)
+        }
+        
+        syncNotes()
     }
     
     func loadNotes() {
@@ -60,6 +81,13 @@ class ItemStore {
             notes = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [Note]
         }
     }
+    
+    func syncNotes() {
+        let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: notes)
+        UserDefaults.standard.set(encodedData, forKey: "notes")
+        UserDefaults.standard.synchronize()
+    }
+    
     //We can atleast fill an array with whatever we want to put here.
     func fillFavorites(){
         let favoritePlace : AnyObject = places[0] as AnyObject

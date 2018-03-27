@@ -27,7 +27,6 @@ class FavoritesViewController: UITableViewController {
         
         let nib = UINib.init(nibName: "PlaceCell", bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: "PlaceCell")
-        tableView.rowHeight = CGFloat(100)
         //tableView.rowHeight = CGFloat(100)
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -83,6 +82,8 @@ class FavoritesViewController: UITableViewController {
             } else {
                 cell.imageView?.image = UIImage(named: "video")
             }
+            
+            tableView.rowHeight = CGFloat(50)
          
             return cell
             
@@ -92,6 +93,9 @@ class FavoritesViewController: UITableViewController {
             
             cellplace.CellLabel.text = c.title
             cellplace.CellImage.image = UIImage(named: c.image)
+            
+            tableView.rowHeight = CGFloat(100)
+            
             return cellplace
        
         case is Note:

@@ -27,6 +27,38 @@ class NoteViewController: UIViewController, UINavigationControllerDelegate, UIIm
     @IBOutlet weak var photoButton: UIButton!
     
     var imagePicker = UIImagePickerController()
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        setFavoriteButton(filled: false)
+    }
+    
+    func setFavoriteButton(filled: Bool) {
+        var buttonIcon: UIImage!
+        
+        buttonIcon = filled ? UIImage(named: "fav-filled") : UIImage(named: "fav")
+        
+        let rightBarButton = UIBarButtonItem(title: "Favorite", style: UIBarButtonItemStyle.done, target: self, action: #selector(PlaceViewController.addFavorite2))
+        rightBarButton.image = buttonIcon
+        
+        self.navigationItem.rightBarButtonItem = rightBarButton
+    }
+    
+    @objc func addFavorite2() {
+//        if (fav){
+//            fav = false
+//            //sender.setTitle("Unfavorite", for: .normal)
+//            setFavoriteButton(filled: false)
+//        }
+//        else {
+//            fav = true
+//            //sender.setTitle("Favorite", for: .normal)
+//            setFavoriteButton(filled: true)
+//            
+//        }
+    }
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +72,7 @@ class NoteViewController: UIViewController, UINavigationControllerDelegate, UIIm
             bodyText.text = body
             
             type = 1
+            self.navigationItem.title = noteTitle
             orignialTitle = noteTitle
             photoButton.setTitle("Change Photo", for: UIControlState.normal)
         }
@@ -72,7 +105,7 @@ class NoteViewController: UIViewController, UINavigationControllerDelegate, UIIm
     
     @IBAction func saveNote(_ sender: UIButton) {
         if type == 0 {
-            itemStore.createNote(title: titleTextField.text!, image: chosenImage, body: bodyText.text!)
+            itemStore.createNote(title: titleTextField.text!, image: image, body: bodyText.text!)
         } else {
             itemStore.updateNote(original: orignialTitle, title: titleTextField.text!, image: image, body: bodyText.text!)
         }
