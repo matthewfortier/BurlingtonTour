@@ -27,14 +27,37 @@ class ItemStore {
         let newNote = Note(order: 0, title: title, file: image, body: body)
         
         notes.append(newNote)
-        UserDefaults.standard.set(notes, forKey: "notes")
+        
+        let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: notes)
+        UserDefaults.standard.set(encodedData, forKey: "notes")
+        UserDefaults.standard.synchronize()
         
         return newNote
     }
     
+    func updateNote(original: String, title: String, image: UIImage, body: String) -> Note {
+        var note: Note!
+        
+        for n in notes {
+            if n.title == original {
+                note = n
+                n.title = title
+                n.image = image
+                n.body = body
+            }
+        }
+        
+        let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: notes)
+        UserDefaults.standard.set(encodedData, forKey: "notes")
+        UserDefaults.standard.synchronize()
+        
+        return note
+    }
+    
     func loadNotes() {
         if UserDefaults.standard.object(forKey: "notes") != nil {
-            notes = UserDefaults.standard.array(forKey: "notes") as! [Note]
+            let decoded  = UserDefaults.standard.object(forKey: "notes") as! Data
+            notes = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [Note]
         }
     }
     //We can atleast fill an array with whatever we want to put here.

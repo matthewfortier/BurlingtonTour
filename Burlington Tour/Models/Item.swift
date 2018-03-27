@@ -51,7 +51,8 @@ class Tour: Item {
     }
 }
 
-class Note: Item {
+class Note: NSObject, Item, NSCoding {
+    
     var title: String
     var order = -1
     
@@ -65,5 +66,20 @@ class Note: Item {
         self.image = file
         self.body = body
     }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(title, forKey: "title")
+        aCoder.encode(order, forKey: "order")
+        aCoder.encode(body, forKey: "body")
+        aCoder.encode(image, forKey: "image")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.title = aDecoder.decodeObject(forKey: "title") as! String
+        self.order = aDecoder.decodeInteger(forKey: "order")
+        self.body = aDecoder.decodeObject(forKey: "body") as! String
+        self.image = aDecoder.decodeObject(forKey: "image") as! UIImage
+    }
+    
 }
 

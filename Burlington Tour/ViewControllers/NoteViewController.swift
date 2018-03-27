@@ -11,16 +11,20 @@ import UIKit
 class NoteViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     var noteTitle: String!
-    var file: String!
+    var image: UIImage!
     var body: String!
     
     var itemStore: ItemStore!
+    
+    var type: Int = 0
+    var orignialTitle: String = ""
     
     var chosenImage: UIImage!
     
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var bodyText: UITextView!
+    @IBOutlet weak var photoButton: UIButton!
     
     var imagePicker = UIImagePickerController()
 
@@ -28,6 +32,17 @@ class NoteViewController: UIViewController, UINavigationControllerDelegate, UIIm
         super.viewDidLoad()
 
         imagePicker.delegate = self
+        
+        if noteTitle != nil {
+            
+            titleTextField.text = noteTitle
+            imageView.image = image
+            bodyText.text = body
+            
+            type = 1
+            orignialTitle = noteTitle
+            photoButton.setTitle("Change Photo", for: UIControlState.normal)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,9 +61,9 @@ class NoteViewController: UIViewController, UINavigationControllerDelegate, UIIm
                                didFinishPickingMediaWithInfo info: [String : Any])
     {
         print("Picked!")
-        chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage //2
+        image = info[UIImagePickerControllerOriginalImage] as! UIImage //2
         imageView.contentMode = .scaleAspectFit //3
-        imageView.image = chosenImage //4
+        imageView.image = image //4
         dismiss(animated:true, completion: nil) //5
     }
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -56,7 +71,12 @@ class NoteViewController: UIViewController, UINavigationControllerDelegate, UIIm
     }
     
     @IBAction func saveNote(_ sender: UIButton) {
-        itemStore.createNote(title: titleTextField.text!, image: chosenImage, body: bodyText.text!)
+        if type == 0 {
+            itemStore.createNote(title: titleTextField.text!, image: chosenImage, body: bodyText.text!)
+        } else {
+            itemStore.updateNote(original: orignialTitle, title: titleTextField.text!, image: image, body: bodyText.text!)
+        }
+        //performSegue(withIdentifier: "unwindToTableView", sender: self)
+        navigationController?.popViewController(animated: true)
     }
-    
 }

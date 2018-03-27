@@ -36,6 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         toursController.itemStore = itemStore
         notesController.itemStore = itemStore
         //noteController.itemStore = itemStore
+        //print(noteController.itemStore)
 
         favoritesController.itemStore = itemStore
         return true
