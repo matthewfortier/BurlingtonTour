@@ -51,7 +51,7 @@
 		<key>image</key>
 		<string>oakledge.jpg</string>
 		<key>fav</key>
-		<true/>
+		<false/>
 	</dict>
 </dict>
 </plist>

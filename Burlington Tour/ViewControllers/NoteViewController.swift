@@ -13,12 +13,14 @@ class NoteViewController: UIViewController, UINavigationControllerDelegate, UIIm
     var noteTitle: String!
     var image: UIImage!
     var body: String!
+    var row: Int!
     
     var itemStore: ItemStore!
     
     var type: Int = 0
     var orignialTitle: String = ""
     
+    var fav : Bool = false
     var chosenImage: UIImage!
     
     @IBOutlet weak var titleTextField: UITextField!
@@ -30,8 +32,8 @@ class NoteViewController: UIViewController, UINavigationControllerDelegate, UIIm
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
-        setFavoriteButton(filled: false)
+        //fav = itemStore.notes[row].fav
+        setFavoriteButton(filled: fav)
     }
     
     func setFavoriteButton(filled: Bool) {
@@ -46,17 +48,21 @@ class NoteViewController: UIViewController, UINavigationControllerDelegate, UIIm
     }
     
     @objc func addFavorite2() {
-//        if (fav){
-//            fav = false
-//            //sender.setTitle("Unfavorite", for: .normal)
-//            setFavoriteButton(filled: false)
-//        }
-//        else {
-//            fav = true
-//            //sender.setTitle("Favorite", for: .normal)
-//            setFavoriteButton(filled: true)
-//            
-//        }
+        if (fav){
+            fav = false
+            //sender.setTitle("Unfavorite", for: .normal)
+            itemStore.addFavorite(newFav: itemStore.notes[row])
+            setFavoriteButton(filled: false)
+        }
+        else {
+            fav = true
+            //sender.setTitle("Favorite", for: .normal)
+            
+            itemStore.addFavorite(newFav: itemStore.notes[row])
+                
+            setFavoriteButton(filled: true)
+            
+        }
     }
 
 
@@ -78,6 +84,8 @@ class NoteViewController: UIViewController, UINavigationControllerDelegate, UIIm
         }
     }
 
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -106,9 +114,9 @@ class NoteViewController: UIViewController, UINavigationControllerDelegate, UIIm
     
     @IBAction func saveNote(_ sender: UIButton) {
         if type == 0 {
-            itemStore.createNote(title: titleTextField.text!, image: image, body: bodyText.text!)
+            itemStore.createNote(title: titleTextField.text!, image: image, body: bodyText.text!, fav: fav)
         } else {
-            itemStore.updateNote(original: orignialTitle, title: titleTextField.text!, image: image, body: bodyText.text!)
+            itemStore.updateNote(original: orignialTitle, title: titleTextField.text!, image: image, body: bodyText.text!, fav: fav)
         }
         //performSegue(withIdentifier: "unwindToTableView", sender: self)
         navigationController?.popViewController(animated: true)

@@ -103,9 +103,11 @@ class NotesTableViewController: UITableViewController {
                 nvc.body = itemStore.notes[selectedRow].body
                 nvc.image = itemStore.notes[selectedRow].image
                 nvc.noteTitle = itemStore.notes[selectedRow].title
+                nvc.row = selectedRow
             } else {
                 let nvc = segue.destination as? NoteViewController
                 nvc?.itemStore = itemStore
+                
                 
             }
         }

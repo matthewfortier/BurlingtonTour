@@ -25,11 +25,12 @@ class PlaceViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     var lat: Float = 0.0
     var lon: Float = 0.0
     var fav: Bool = false
+    var row: Int = 0
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-    
-        setFavoriteButton(filled: false)
+        print(fav)  
+        setFavoriteButton(filled: fav)
     }
     
     func setFavoriteButton(filled: Bool) {
@@ -45,29 +46,31 @@ class PlaceViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     
     @objc func addFavorite2() {
         if (fav){
-            fav = false
+            
             //sender.setTitle("Unfavorite", for: .normal)
+            itemStore.removeFavorite(row: row)
             setFavoriteButton(filled: false)
+            
         }
         else {
             fav = true
+            itemStore.addFavorite(newFav: itemStore.places[row])
             //sender.setTitle("Favorite", for: .normal)
             setFavoriteButton(filled: true)
-            
         }
     }
 
     
-    @IBAction func addFavorite(_ sender: UIButton) {
-        if (fav){
-            fav = false
-            sender.setTitle("Unfavorite", for: .normal)
-        }
-        else {
-            fav = true
-            sender.setTitle("Favorite", for: .normal)
-        }
-    }
+//    @IBAction func addFavorite(_ sender: UIButton) {
+//        if (fav){
+//            fav = false
+//            sender.setTitle("Unfavorite", for: .normal)
+//        }
+//        else {
+//            fav = true
+//            sender.setTitle("Favorite", for: .normal)
+//        }
+//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

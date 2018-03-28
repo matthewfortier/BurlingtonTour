@@ -19,7 +19,8 @@ class PlacesTableViewController: UITableViewController {
         self.tableView.register(nib, forCellReuseIdentifier: "PlaceCell")
         tableView.rowHeight = CGFloat(100)
     }
-
+  
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -44,6 +45,8 @@ class PlacesTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "placeDetailSegue" {
             if let pvc = segue.destination as? PlaceViewController, let selectedRow = tableView.indexPathForSelectedRow?.row {
+                pvc.itemStore = itemStore
+                pvc.row = selectedRow
                 pvc.image = itemStore.places[selectedRow].image
                 pvc.body = itemStore.places[selectedRow].body
                 pvc.navTitle = itemStore.places[selectedRow].title

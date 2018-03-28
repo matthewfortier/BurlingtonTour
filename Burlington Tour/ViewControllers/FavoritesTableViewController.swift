@@ -24,13 +24,16 @@ class FavoritesViewController: UITableViewController {
         super.viewDidLoad()
         
         self.refreshControl?.addTarget(self, action: #selector(FavoritesViewController.refresh(_:)), for: UIControlEvents.valueChanged)
-        
+        navigationItem.leftBarButtonItem = editButtonItem
         let nib = UINib.init(nibName: "PlaceCell", bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: "PlaceCell")
         //tableView.rowHeight = CGFloat(100)
     }
     override func viewWillAppear(_ animated: Bool) {
-        self.tableView.reloadData()
+        
+        tableView.reloadData()
+        //itemStore.loadFavorites()
+   
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -50,14 +53,19 @@ class FavoritesViewController: UITableViewController {
      
      */
     
+    override func tableView(_ tableView: UITableView,
+                            moveRowAt sourceIndexPath: IndexPath,
+                            to destinationIndexPath: IndexPath) {
+        // Update the model
+        itemStore.moveFavorite(from: sourceIndexPath.row, to: destinationIndexPath.row)
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let c = itemStore.favoritesArray[indexPath.row]
         switch c {
             case is Place:
-                print("place")
                 performSegue(withIdentifier: "favPlaceSegue", sender: indexPath.row)
             case is Tour:
-                print("tour")
                 performSegue(withIdentifier: "favTourSegue", sender: indexPath.row)
             case is Note:
                 performSegue(withIdentifier: "favNoteSegue", sender: indexPath.row)
@@ -99,8 +107,13 @@ class FavoritesViewController: UITableViewController {
             return cellplace
        
         case is Note:
-            print("todo")
+            let cellNote = tableView.dequeueReusableCell(withIdentifier: "PlaceCell", for: indexPath) as! PlaceCell
+            let note : Note = itemStore.favoritesArray[indexPath.row] as! Note
             
+            cellNote.CellLabel.text = note.title
+            cellNote.CellImage.image = note.image
+            tableView.rowHeight = CGFloat(100)
+            return cellNote
         default:
             print("broken, should not be here")
             
@@ -115,6 +128,37 @@ class FavoritesViewController: UITableViewController {
          */
      
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView,
+                            commit editingStyle: UITableViewCellEditingStyle,
+                            forRowAt indexPath: IndexPath) {
+        // If the table view is asking to commit a delete command...
+        if editingStyle == .delete {
+                      
+     
+            let message = "Are you sure you want to delete this item?"
+            
+            let ac = UIAlertController(title: title,
+                                       message: message,
+                                       preferredStyle: .actionSheet)
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            ac.addAction(cancelAction)
+            
+            let deleteAction = UIAlertAction(title: "Delete", style: .destructive,
+                                             handler: { (action) -> Void in
+                                                // Remove the item from the store
+                                                self.itemStore.removeFavorite(row: indexPath.row)
+                                                
+                                                // Also remove that row from the table view with an animation
+                                                self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            })
+            ac.addAction(deleteAction)
+            
+            // Present the alert controller
+            present(ac, animated: true, completion: nil)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -142,7 +186,18 @@ class FavoritesViewController: UITableViewController {
             }
         }
         if segue.identifier == "favNoteSegue" {
-            print("TODO") //TODO
+            
+            if let nvc = segue.destination as? NoteViewController, let selectedRow = tableView.indexPathForSelectedRow?.row  {
+                nvc.itemStore = itemStore
+                nvc.body = itemStore.notes[selectedRow].body
+                nvc.image = itemStore.notes[selectedRow].image
+                nvc.noteTitle = itemStore.notes[selectedRow].title
+            } else {
+                let nvc = segue.destination as? NoteViewController
+                nvc?.itemStore = itemStore
+                    
+                
+            }
         }
     }
 }

@@ -12,6 +12,8 @@
 		<string>video.mp4</string>
 		<key>type</key>
 		<string>video</string>
+		<key>fav</key>
+		<false/>
 	</dict>
 	<key>1</key>
 	<dict>
@@ -23,6 +25,8 @@
 		<string>audio.mp3</string>
 		<key>type</key>
 		<string>audio</string>
+		<key>fav</key>
+		<false/>
 	</dict>
 </dict>
 </plist>
