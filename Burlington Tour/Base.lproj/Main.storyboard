@@ -380,13 +380,21 @@
         <!--Links-->
         <scene sceneID="dWC-3t-Npc">
             <objects>
-                <tableViewController id="lwB-PJ-4fD" sceneMemberID="viewController">
+                <tableViewController id="lwB-PJ-4fD" customClass="LinksTableViewController" customModule="Burlington_Tour" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="LBn-L5-0ML">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hDE-bj-efc">
+                            <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Credits"/>
+                            <connections>
+                                <segue destination="vqv-1H-FZa" kind="show" id="hcT-9G-VBd"/>
+                            </connections>
+                        </button>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="QYt-Sc-T41">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="StandardCell" id="QYt-Sc-T41">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QYt-Sc-T41" id="obk-Hs-Qfq">
@@ -400,11 +408,65 @@
                             <outlet property="delegate" destination="lwB-PJ-4fD" id="Z1e-sR-Axb"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Links" id="it1-Z4-GWu"/>
+                    <navigationItem key="navigationItem" title="Links" id="it1-Z4-GWu">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="pPw-c1-MsU">
+                            <connections>
+                                <action selector="createLink:" destination="lwB-PJ-4fD" id="beW-Tf-KBO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hse-ki-3HQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1737" y="1765"/>
+        </scene>
+        <!--Credits-->
+        <scene sceneID="ZCC-IJ-2Xn">
+            <objects>
+                <viewController title="Credits" id="vqv-1H-FZa" customClass="CreditsViewController" customModule="Burlington_Tour" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Qsh-qj-Pz9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="h78-YV-Cep">
+                                <rect key="frame" x="0.0" y="64" width="375" height="41"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Burlington Tours" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zQS-cM-whM">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="20.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="IlN-Kt-CWm"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Authors: Matthew Fortier and Morgan Seielstad" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zvA-YM-zE9">
+                                        <rect key="frame" x="0.0" y="20.5" width="375" height="20.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="4nT-ft-EyJ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="h78-YV-Cep" firstAttribute="top" secondItem="ly5-97-haI" secondAttribute="top" id="8aF-hc-6hF"/>
+                            <constraint firstItem="ly5-97-haI" firstAttribute="trailing" secondItem="h78-YV-Cep" secondAttribute="trailing" id="GWX-Kc-TVz"/>
+                            <constraint firstItem="ly5-97-haI" firstAttribute="bottom" secondItem="h78-YV-Cep" secondAttribute="bottom" id="MP4-Sb-gkd"/>
+                            <constraint firstItem="h78-YV-Cep" firstAttribute="leading" secondItem="ly5-97-haI" secondAttribute="leading" id="V3b-OZ-ljE"/>
+                            <constraint firstItem="h78-YV-Cep" firstAttribute="centerY" secondItem="ly5-97-haI" secondAttribute="centerY" id="XVB-9U-K3V"/>
+                            <constraint firstItem="h78-YV-Cep" firstAttribute="centerX" secondItem="ly5-97-haI" secondAttribute="centerX" id="jcy-XG-ydK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ly5-97-haI"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gCC-ba-3aU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2492" y="1762.6686656671666"/>
         </scene>
         <!--Favorites Nav Controller-->
         <scene sceneID="bOc-2D-q77">

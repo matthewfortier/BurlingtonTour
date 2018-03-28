@@ -19,8 +19,8 @@
 		1A6ABE8E2064298100534B6D /* video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1A6ABE8C2064298100534B6D /* video.mp4 */; };
 		1A6ABE9020642CDA00534B6D /* TourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6ABE8F20642CDA00534B6D /* TourViewController.swift */; };
 		1A6ABE922064304100534B6D /* NotesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6ABE912064304100534B6D /* NotesTableViewController.swift */; };
-		1A6ABE94206430B000534B6D /* Notes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1A6ABE93206430B000534B6D /* Notes.plist */; };
 		1A6ABE96206437AE00534B6D /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6ABE95206437AE00534B6D /* NoteViewController.swift */; };
+		1ABED614206AE6AB00054E0D /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABED613206AE6AB00054E0D /* CreditsViewController.swift */; };
 		1AC4CEE7206A9A2E00DF9968 /* BurlingtonTourTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC4CEE6206A9A2E00DF9968 /* BurlingtonTourTests.swift */; };
 		1AC4CEF7206A9C2700DF9968 /* church.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1AC4CEF4206A9C2600DF9968 /* church.jpg */; };
 		1AC4CEF8206A9C2700DF9968 /* oakledge.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1AC4CEF5206A9C2700DF9968 /* oakledge.jpg */; };
@@ -31,6 +31,7 @@
 		1ACFCA392060A23200A749B7 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACFCA382060A23200A749B7 /* Item.swift */; };
 		1ACFCA3D2060A66000A749B7 /* ItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACFCA3C2060A66000A749B7 /* ItemStore.swift */; };
 		1ACFCA402060A9CE00A749B7 /* Places.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1ACFCA3F2060A9CE00A749B7 /* Places.plist */; };
+		1AEC4E6D206AD120000AD1DA /* LinksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEC4E6C206AD120000AD1DA /* LinksTableViewController.swift */; };
 		48DBB0F42067E3390054FC5B /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DBB0F32067E3390054FC5B /* FavoritesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,8 +60,8 @@
 		1A6ABE8C2064298100534B6D /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video.mp4; sourceTree = "<group>"; };
 		1A6ABE8F20642CDA00534B6D /* TourViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourViewController.swift; sourceTree = "<group>"; };
 		1A6ABE912064304100534B6D /* NotesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTableViewController.swift; sourceTree = "<group>"; };
-		1A6ABE93206430B000534B6D /* Notes.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Notes.plist; sourceTree = "<group>"; };
 		1A6ABE95206437AE00534B6D /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
+		1ABED613206AE6AB00054E0D /* CreditsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
 		1AC4CEE4206A9A2E00DF9968 /* BurlingtonTourTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BurlingtonTourTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AC4CEE6206A9A2E00DF9968 /* BurlingtonTourTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BurlingtonTourTests.swift; sourceTree = "<group>"; };
 		1AC4CEE8206A9A2E00DF9968 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -73,6 +74,7 @@
 		1ACFCA382060A23200A749B7 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		1ACFCA3C2060A66000A749B7 /* ItemStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemStore.swift; sourceTree = "<group>"; };
 		1ACFCA3F2060A9CE00A749B7 /* Places.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Places.plist; sourceTree = "<group>"; };
+		1AEC4E6C206AD120000AD1DA /* LinksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksTableViewController.swift; sourceTree = "<group>"; };
 		48DBB0F32067E3390054FC5B /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -169,6 +171,8 @@
 				1A6ABE8F20642CDA00534B6D /* TourViewController.swift */,
 				1A6ABE912064304100534B6D /* NotesTableViewController.swift */,
 				1A6ABE95206437AE00534B6D /* NoteViewController.swift */,
+				1AEC4E6C206AD120000AD1DA /* LinksTableViewController.swift */,
+				1ABED613206AE6AB00054E0D /* CreditsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -189,7 +193,6 @@
 				1A6ABE8C2064298100534B6D /* video.mp4 */,
 				1ACFCA3F2060A9CE00A749B7 /* Places.plist */,
 				1A0BFB642061BCFD00165837 /* Tours.plist */,
-				1A6ABE93206430B000534B6D /* Notes.plist */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -279,7 +282,6 @@
 			files = (
 				1A0BFB652061BCFD00165837 /* Tours.plist in Resources */,
 				1AC4CEF9206A9C2700DF9968 /* burlington-bike-path.jpg in Resources */,
-				1A6ABE94206430B000534B6D /* Notes.plist in Resources */,
 				1A30C1AD204F4D2100828FF1 /* LaunchScreen.storyboard in Resources */,
 				1A30C1AA204F4D2100828FF1 /* Assets.xcassets in Resources */,
 				1ACFCA402060A9CE00A749B7 /* Places.plist in Resources */,
@@ -312,11 +314,13 @@
 				1A0BFB612061BAA000165837 /* ToursTableViewController.swift in Sources */,
 				1A30C1A1204F4D2100828FF1 /* AppDelegate.swift in Sources */,
 				1A6ABE9020642CDA00534B6D /* TourViewController.swift in Sources */,
+				1AEC4E6D206AD120000AD1DA /* LinksTableViewController.swift in Sources */,
 				1AC9C78B2060B8F200DB5D40 /* PlaceViewController.swift in Sources */,
 				1ACFCA3D2060A66000A749B7 /* ItemStore.swift in Sources */,
 				1A6ABE922064304100534B6D /* NotesTableViewController.swift in Sources */,
 				1A6ABE96206437AE00534B6D /* NoteViewController.swift in Sources */,
 				1A0C3FB4206189E8006AC1FF /* PlaceCell.swift in Sources */,
+				1ABED614206AE6AB00054E0D /* CreditsViewController.swift in Sources */,
 				48DBB0F42067E3390054FC5B /* FavoritesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

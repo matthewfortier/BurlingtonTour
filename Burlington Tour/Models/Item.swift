@@ -83,3 +83,28 @@ class Note: NSObject, Item, NSCoding {
     
 }
 
+class UserLink: NSObject, Item, NSCoding {
+    var order = -1
+    var title: String
+    var url: String
+    
+    init(order: Int, title: String, url: String) {
+        self.order = order
+        self.title = title
+        
+        self.url = url
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(title, forKey: "title")
+        aCoder.encode(order, forKey: "order")
+        aCoder.encode(url, forKey: "url")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.title = aDecoder.decodeObject(forKey: "title") as! String
+        self.order = aDecoder.decodeInteger(forKey: "order")
+        self.url = aDecoder.decodeObject(forKey: "url") as! String
+    }
+}
+

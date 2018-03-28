@@ -10,11 +10,10 @@ import UIKit
 
 class NoteViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
-    var noteTitle: String!
-    var image: UIImage!
-    var body: String!
+    var note: Note!
     
     var itemStore: ItemStore!
+    var image: UIImage!
     
     var type: Int = 0
     var orignialTitle: String = ""
@@ -65,15 +64,15 @@ class NoteViewController: UIViewController, UINavigationControllerDelegate, UIIm
 
         imagePicker.delegate = self
         
-        if noteTitle != nil {
+        if note != nil {
             
-            titleTextField.text = noteTitle
-            imageView.image = image
-            bodyText.text = body
+            titleTextField.text = note.title
+            imageView.image = note.image
+            bodyText.text = note.body
             
             type = 1
-            self.navigationItem.title = noteTitle
-            orignialTitle = noteTitle
+            self.navigationItem.title = note.title
+            orignialTitle = note.title
             photoButton.setTitle("Change Photo", for: UIControlState.normal)
         }
     }
@@ -108,7 +107,7 @@ class NoteViewController: UIViewController, UINavigationControllerDelegate, UIIm
         if type == 0 {
             itemStore.createNote(title: titleTextField.text!, image: image, body: bodyText.text!)
         } else {
-            itemStore.updateNote(original: orignialTitle, title: titleTextField.text!, image: image, body: bodyText.text!)
+            itemStore.updateNote(original: note, title: titleTextField.text!, image: image, body: bodyText.text!)
         }
         //performSegue(withIdentifier: "unwindToTableView", sender: self)
         navigationController?.popViewController(animated: true)

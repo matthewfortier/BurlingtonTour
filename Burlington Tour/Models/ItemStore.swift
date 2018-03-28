@@ -13,23 +13,21 @@ class ItemStore {
     var places: [Place] = []
     var tours: [Tour] = []
     var notes: [Note] = []
+    var links: [UserLink] = []
     var favoritesArray: [AnyObject] = []
     //var numFavorites = 2
     
     init() {
         loadPlaces()
         loadTours()
-        loadNotes()
+        loadUserData()
         fillFavorites()
     }
     
     @discardableResult func createNote(title: String, image: UIImage, body: String) -> Note {
         let newNote = Note(order: 0, title: title, file: image, body: body)
-        
         notes.append(newNote)
-        
-        syncNotes()
-        
+        syncData()
         return newNote
     }
     
@@ -37,32 +35,23 @@ class ItemStore {
         if fromIndex == toIndex {
             return
         }
-        
-        // Get reference to object being moved so you can re-insert it
         let movedItem = notes[fromIndex]
-        
-        // Remove item from array
         notes.remove(at: fromIndex)
-        
-        // Insert item in array at new location
         notes.insert(movedItem, at: toIndex)
         
-        syncNotes()
+        syncData()
     }
     
-    func updateNote(original: String, title: String, image: UIImage, body: String) -> Note {
+    func updateNote(original: Note, title: String, image: UIImage, body: String) -> Note {
         var note: Note!
         
-        for n in notes {
-            if n.title == original {
-                note = n
-                n.title = title
-                n.image = image
-                n.body = body
-            }
+        if let index = notes.index(of: original) {
+            notes[index].title = title
+            notes[index].image = image
+            notes[index].body = body
+            note = notes[index]
         }
-        
-        syncNotes()
+        syncData()
         
         return note
     }
@@ -71,19 +60,53 @@ class ItemStore {
         if let index = notes.index(of: note) {
             notes.remove(at: index)
         }
-        
-        syncNotes()
+        syncData()
     }
     
-    func loadNotes() {
+    @discardableResult func createLink(title: String, url: String) -> UserLink {
+        let newLink = UserLink(order: 0, title: title, url: url)
+        links.append(newLink)
+        syncData()
+        return newLink
+    }
+    
+    func moveLink(from fromIndex: Int, to toIndex: Int) {
+        if fromIndex == toIndex {
+            return
+        }
+        let movedItem = links[fromIndex]
+        links.remove(at: fromIndex)
+        links.insert(movedItem, at: toIndex)
+        
+        syncData()
+    }
+    
+    func removeLink(_ link: UserLink) {
+        if let index = links.index(of: link) {
+            links.remove(at: index)
+        }
+        
+        syncData()
+    }
+    
+    func loadUserData() {
+        if UserDefaults.standard.object(forKey: "links") != nil {
+            let decoded  = UserDefaults.standard.object(forKey: "links") as! Data
+            links = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [UserLink]
+        }
+        
         if UserDefaults.standard.object(forKey: "notes") != nil {
             let decoded  = UserDefaults.standard.object(forKey: "notes") as! Data
             notes = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [Note]
         }
     }
     
-    func syncNotes() {
-        let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: notes)
+    func syncData() {
+        var encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: links)
+        UserDefaults.standard.set(encodedData, forKey: "links")
+        UserDefaults.standard.synchronize()
+        
+        encodedData = NSKeyedArchiver.archivedData(withRootObject: notes)
         UserDefaults.standard.set(encodedData, forKey: "notes")
         UserDefaults.standard.synchronize()
     }
