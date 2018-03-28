@@ -41,13 +41,17 @@ class Tour: Item {
     
     var file: String
     var type: String
+    var fav: Bool
+    var row: Int
     
-    init(order: Int, title: String, file: String, type: String) {
+    init(order: Int, title: String, file: String, type: String, fav: Bool) {
         self.order = order
         self.title = title
         
         self.file = file
         self.type = type
+        self.fav = fav
+        self.row = 0
     }
 }
 
@@ -58,13 +62,15 @@ class Note: NSObject, Item, NSCoding {
     
     var body: String
     var image: UIImage
+    var fav:Bool
     
-    init(order: Int, title: String, file: UIImage, body: String) {
+    init(order: Int, title: String, file: UIImage, body: String, fav: Bool) {
         self.order = order
         self.title = title
         
         self.image = file
         self.body = body
+        self.fav = fav
     }
     
     func encode(with aCoder: NSCoder) {
@@ -72,6 +78,8 @@ class Note: NSObject, Item, NSCoding {
         aCoder.encode(order, forKey: "order")
         aCoder.encode(body, forKey: "body")
         aCoder.encode(image, forKey: "image")
+        aCoder.encode(fav, forKey: "fav")
+ 
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -79,6 +87,8 @@ class Note: NSObject, Item, NSCoding {
         self.order = aDecoder.decodeInteger(forKey: "order")
         self.body = aDecoder.decodeObject(forKey: "body") as! String
         self.image = aDecoder.decodeObject(forKey: "image") as! UIImage
+        self.fav = false
+    
     }
     
 }

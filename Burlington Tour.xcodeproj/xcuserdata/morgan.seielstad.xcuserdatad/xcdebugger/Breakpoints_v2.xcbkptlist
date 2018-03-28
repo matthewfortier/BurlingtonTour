@@ -26,13 +26,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Burlington Tour/ViewControllers/PlacesTableViewController.swift"
-            timestampString = "543803964.4037631"
+            timestampString = "543909990.837429"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Burlington Tour/ViewControllers/FavoritesTableViewController.swift"
-            timestampString = "543803964.404107"
+            timestampString = "543909990.8374749"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "13"
@@ -58,7 +58,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Burlington Tour/ViewControllers/FavoritesTableViewController.swift"
-            timestampString = "543803964.404157"
+            timestampString = "543909990.837706"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "13"
@@ -151,13 +151,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Burlington Tour/ViewControllers/PlacesTableViewController.swift"
-            timestampString = "543803964.404202"
+            timestampString = "543909990.837872"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "prepare(for:sender:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -167,12 +167,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Burlington Tour/ViewControllers/PlaceViewController.swift"
-            timestampString = "543803964.404397"
+            timestampString = "543909227.471736"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "setFavoriteButton(filled:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -231,13 +231,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Burlington Tour/ViewControllers/PlacesTableViewController.swift"
-            timestampString = "543803964.404488"
+            timestampString = "543909990.837948"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "15"
             endingLineNumber = "15"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -247,13 +247,61 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Burlington Tour/ViewControllers/PlacesTableViewController.swift"
-            timestampString = "543803964.4046839"
+            timestampString = "543909990.83798"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "14"
             endingLineNumber = "14"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "PlacesTableViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Burlington Tour/ViewControllers/PlacesTableViewController.swift"
+            timestampString = "543909990.83801"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "prepare(for:sender:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Burlington Tour/Models/ItemStore.swift"
+            timestampString = "543909990.838045"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
+            landmarkName = "ItemStore"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Burlington Tour/Models/ItemStore.swift"
+            timestampString = "543909990.838397"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "ItemStore"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

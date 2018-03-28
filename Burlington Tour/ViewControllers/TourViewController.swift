@@ -10,7 +10,8 @@ import UIKit
 import AVKit
 
 class TourViewController: AVPlayerViewController {
-    
+    var itemStore: ItemStore!
+    var row : Int = 0
     var tourTitle: String!
     var file: String!
     
@@ -31,18 +32,21 @@ class TourViewController: AVPlayerViewController {
         self.navigationItem.rightBarButtonItem = rightBarButton
     }
     
+    
     @objc func addFavorite2() {
-//        if (fav){
-//            fav = false
-//            //sender.setTitle("Unfavorite", for: .normal)
-//            setFavoriteButton(filled: false)
-//        }
-//        else {
-//            fav = true
-//            //sender.setTitle("Favorite", for: .normal)
-//            setFavoriteButton(filled: true)
-//            
-//        }
+        if (itemStore.tours[row].fav){
+            
+            //sender.setTitle("Unfavorite", for: .normal)
+            itemStore.removeFavorite(row: row)
+            setFavoriteButton(filled: false)
+            
+        }
+        else {
+            //fav = true
+            itemStore.addFavorite(newFav: itemStore.tours[row])
+            //sender.setTitle("Favorite", for: .normal)
+            setFavoriteButton(filled: true)
+        }
     }
 
 
