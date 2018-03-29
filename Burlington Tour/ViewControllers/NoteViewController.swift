@@ -11,7 +11,6 @@ import UIKit
 class NoteViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     var note: Note!
-    var row: Int!
     
     var itemStore: ItemStore!
     var image: UIImage!
@@ -29,41 +28,27 @@ class NoteViewController: UIViewController, UINavigationControllerDelegate, UIIm
     
     var imagePicker = UIImagePickerController()
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        //fav = itemStore.notes[row].fav
-        setFavoriteButton(filled: fav)
-    }
-    
     func setFavoriteButton(filled: Bool) {
         var buttonIcon: UIImage!
         
         buttonIcon = filled ? UIImage(named: "fav-filled") : UIImage(named: "fav")
         
-        let rightBarButton = UIBarButtonItem(title: "Favorite", style: UIBarButtonItemStyle.done, target: self, action: #selector(PlaceViewController.addFavorite2))
+        let rightBarButton: UIBarButtonItem = UIBarButtonItem(title: "Favorite", style: UIBarButtonItemStyle.done, target: self, action: #selector(NoteViewController.handleFavorite))
+        
         rightBarButton.image = buttonIcon
         
         self.navigationItem.rightBarButtonItem = rightBarButton
     }
     
-    @objc func addFavorite2() {
-        if (fav){
-            fav = false
-            //sender.setTitle("Unfavorite", for: .normal)
-            itemStore.addFavorite(newFav: itemStore.notes[row])
+    @objc func handleFavorite() {
+        if itemStore.isFavorite(uuid: note.id) {
+            itemStore.removeFavorite(uuid: note.id)
             setFavoriteButton(filled: false)
-        }
-        else {
-            fav = true
-            //sender.setTitle("Favorite", for: .normal)
-            
-            itemStore.addFavorite(newFav: itemStore.notes[row])
-                
+        } else {
+            itemStore.addFavorite(uuid: note.id, type: "note")
             setFavoriteButton(filled: true)
-            
         }
     }
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,15 +56,18 @@ class NoteViewController: UIViewController, UINavigationControllerDelegate, UIIm
         imagePicker.delegate = self
         
         if note != nil {
-            
+            setFavoriteButton(filled: itemStore.isFavorite(uuid: note.id))
             titleTextField.text = note.title
             imageView.image = note.image
             bodyText.text = note.body
+            image = note.image
             
             type = 1
             self.navigationItem.title = note.title
             orignialTitle = note.title
             photoButton.setTitle("Change Photo", for: UIControlState.normal)
+        } else {
+            setFavoriteButton(filled: false)
         }
     }
 
@@ -113,11 +101,10 @@ class NoteViewController: UIViewController, UINavigationControllerDelegate, UIIm
     
     @IBAction func saveNote(_ sender: UIButton) {
         if type == 0 {
-            itemStore.createNote(title: titleTextField.text!, image: image, body: bodyText.text!, fav: fav)
+            itemStore.createNote(title: titleTextField.text!, image: image, body: bodyText.text!)
         } else {
-            itemStore.updateNote(original: note, title: titleTextField.text!, image: image, body: bodyText.text!, fav: fav)
+            itemStore.updateNote(original: note, title: titleTextField.text!, image: image, body: bodyText.text!)
         }
-        //performSegue(withIdentifier: "unwindToTableView", sender: self)
         navigationController?.popViewController(animated: true)
     }
 }

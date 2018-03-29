@@ -18,70 +18,42 @@ class PlaceViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     @IBOutlet weak var Map: MKMapView!
     
     var itemStore: ItemStore!
-    
-    var body: String = ""
-    var image: String = ""
-    var navTitle: String = ""
-    var lat: Float = 0.0
-    var lon: Float = 0.0
-    var fav: Bool = false
-    var row: Int = 0
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        print(fav)  
-        setFavoriteButton(filled: fav)
-    }
+    var place: Place!
     
     func setFavoriteButton(filled: Bool) {
         var buttonIcon: UIImage!
         
         buttonIcon = filled ? UIImage(named: "fav-filled") : UIImage(named: "fav")
         
-        let rightBarButton = UIBarButtonItem(title: "Favorite", style: UIBarButtonItemStyle.done, target: self, action: #selector(PlaceViewController.addFavorite2))
+        let rightBarButton: UIBarButtonItem = UIBarButtonItem(title: "Favorite", style: UIBarButtonItemStyle.done, target: self, action: #selector(PlaceViewController.handleFavorite))
+        
         rightBarButton.image = buttonIcon
         
         self.navigationItem.rightBarButtonItem = rightBarButton
     }
     
-    @objc func addFavorite2() {
-        if (fav){
-            
-            //sender.setTitle("Unfavorite", for: .normal)
-            itemStore.removeFavorite(row: row)
+    @objc func handleFavorite() {
+        if itemStore.isFavorite(uuid: place.id) {
+            itemStore.removeFavorite(uuid: place.id)
             setFavoriteButton(filled: false)
-            
-        }
-        else {
-            fav = true
-            itemStore.addFavorite(newFav: itemStore.places[row])
-            //sender.setTitle("Favorite", for: .normal)
+        } else {
+            itemStore.addFavorite(uuid: place.id, type: "place")
             setFavoriteButton(filled: true)
         }
     }
 
-    
-//    @IBAction func addFavorite(_ sender: UIButton) {
-//        if (fav){
-//            fav = false
-//            sender.setTitle("Unfavorite", for: .normal)
-//        }
-//        else {
-//            fav = true
-//            sender.setTitle("Favorite", for: .normal)
-//        }
-//    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Image.image = UIImage(named: image)
-        Body.text = body
+        setFavoriteButton(filled: itemStore.isFavorite(uuid: place.id))
         
-        self.navigationItem.title = navTitle
+        Image.image = UIImage(named: place.image)
+        Body.text = place.body
+        
+        self.navigationItem.title = place.title
         
         let annotation = MKPointAnnotation()
-        annotation.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(lat), longitude: CLLocationDegrees(lon))
+        annotation.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(place.lat), longitude: CLLocationDegrees(place.lon))
         Map.addAnnotation(annotation)
         
         Map.showAnnotations(Map.annotations, animated: true)

@@ -4,6 +4,8 @@
 <dict>
 	<key>0</key>
 	<dict>
+		<key>id</key>
+		<string>d4ab9182-a5ab-4788-8ce9-3a86ccc39da2</string>
 		<key>order</key>
 		<integer>0</integer>
 		<key>title</key>
@@ -17,6 +19,8 @@
 	</dict>
 	<key>1</key>
 	<dict>
+		<key>id</key>
+		<string>3c246e78-8dca-4c9f-874c-cd537ab4c486</string>
 		<key>order</key>
 		<integer>0</integer>
 		<key>title</key>

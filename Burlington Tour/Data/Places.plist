@@ -4,6 +4,8 @@
 <dict>
 	<key>0</key>
 	<dict>
+		<key>id</key>
+		<string>7e024497-68a4-422c-9f1d-894d131111d5</string>
 		<key>title</key>
 		<string>Burlington Bike Path</string>
 		<key>body</key>
@@ -21,6 +23,8 @@
 	</dict>
 	<key>1</key>
 	<dict>
+		<key>id</key>
+		<string>ae96683c-7be2-47e0-ae19-0cb0477230d6</string>
 		<key>title</key>
 		<string>Church Street Marketplace</string>
 		<key>body</key>
@@ -38,6 +42,8 @@
 	</dict>
 	<key>2</key>
 	<dict>
+		<key>id</key>
+		<string>ef6df72e-f40a-4588-b31d-0a9130d24cf2</string>
 		<key>title</key>
 		<string>Oakledge</string>
 		<key>body</key>

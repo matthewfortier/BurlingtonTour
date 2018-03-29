@@ -48,10 +48,8 @@ class ToursTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "tourDetailSegue" {
             if let tvc = segue.destination as? TourViewController, let selectedRow = tableView.indexPathForSelectedRow?.row {
-                tvc.tourTitle = itemStore.tours[selectedRow].title
-                tvc.file = itemStore.tours[selectedRow].file
                 tvc.itemStore = itemStore
-                tvc.row = selectedRow
+                tvc.tour = itemStore.tours[selectedRow]
             }
         }
     }

@@ -10,11 +10,13 @@ import Foundation
 import UIKit
 
 protocol Item {
+    var id: String {get set}
     var order: Int {get set}
     var title: String {get set}
 }
 
 class Place: Item {
+    var id: String
     var order = -1
     var title: String
     
@@ -22,99 +24,119 @@ class Place: Item {
     var lat: Float
     var lon: Float
     var image: String
-    var fav: Bool
     
-    init(order: Int, title: String, body: String, image: String, lat: Float, lon: Float, fav: Bool) {
+    init(id: String, order: Int, title: String, body: String, image: String, lat: Float, lon: Float) {
+        self.id = id
         self.order = order
         self.title = title
         self.body = body
         self.image = image
         self.lat = lat
         self.lon = lon
-        self.fav = fav
     }
 }
 
 class Tour: Item {
+    var id: String
     var order = -1
     var title: String
     
     var file: String
     var type: String
-    var fav: Bool
     var row: Int
     
-    init(order: Int, title: String, file: String, type: String, fav: Bool) {
+    init(id: String, order: Int, title: String, file: String, type: String) {
+        self.id = id
         self.order = order
         self.title = title
         
         self.file = file
         self.type = type
-        self.fav = fav
         self.row = 0
     }
 }
 
 class Note: NSObject, Item, NSCoding {
-    
+    var id: String
     var title: String
     var order = -1
     
     var body: String
     var image: UIImage
-    var fav:Bool
     
-    init(order: Int, title: String, file: UIImage, body: String, fav: Bool) {
+    init(order: Int, title: String, file: UIImage, body: String) {
+        self.id = UUID().uuidString
         self.order = order
         self.title = title
         
         self.image = file
         self.body = body
-        self.fav = fav
     }
     
     func encode(with aCoder: NSCoder) {
+        aCoder.encode(id, forKey: "id")
         aCoder.encode(title, forKey: "title")
         aCoder.encode(order, forKey: "order")
         aCoder.encode(body, forKey: "body")
         aCoder.encode(image, forKey: "image")
-        aCoder.encode(fav, forKey: "fav")
  
     }
     
     required init?(coder aDecoder: NSCoder) {
+        self.id = aDecoder.decodeObject(forKey: "id") as! String
         self.title = aDecoder.decodeObject(forKey: "title") as! String
         self.order = aDecoder.decodeInteger(forKey: "order")
         self.body = aDecoder.decodeObject(forKey: "body") as! String
         self.image = aDecoder.decodeObject(forKey: "image") as! UIImage
-        self.fav = false
-    
     }
     
 }
 
 class UserLink: NSObject, Item, NSCoding {
+    var id: String
     var order = -1
     var title: String
     var url: String
     
     init(order: Int, title: String, url: String) {
+        self.id = UUID().uuidString
         self.order = order
         self.title = title
-        
         self.url = url
     }
     
     func encode(with aCoder: NSCoder) {
+        aCoder.encode(id, forKey: "id")
         aCoder.encode(title, forKey: "title")
         aCoder.encode(order, forKey: "order")
         aCoder.encode(url, forKey: "url")
     }
     
     required init?(coder aDecoder: NSCoder) {
+        self.id = aDecoder.decodeObject(forKey: "id") as! String
         self.title = aDecoder.decodeObject(forKey: "title") as! String
         self.order = aDecoder.decodeInteger(forKey: "order")
         self.url = aDecoder.decodeObject(forKey: "url") as! String
+    }
+}
+
+class Favorite: NSObject, NSCoding {
+    var id: String
+    var type: String
+    
+    init(id: String, type: String) {
+        self.id = id
+        self.type = type
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(id, forKey: "id")
+        aCoder.encode(type, forKey: "type")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.id = aDecoder.decodeObject(forKey: "id") as! String
+        self.type = aDecoder.decodeObject(forKey: "type") as! String
     }
 }
 

@@ -12,8 +12,6 @@ class FavoritesViewController: UITableViewController {
     
     var itemStore: ItemStore!
    
-    
-
 //  https://www.andrewcbancroft.com/2015/03/17/basics-of-pull-to-refresh-for-swift-developers/
     @IBAction func refresh(_ sender: UIRefreshControl) {
         self.tableView.reloadData()
@@ -41,9 +39,7 @@ class FavoritesViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let c = self.itemStore.favoritesArray as NSArray
-        return c.count
-        
+        return itemStore.favorites.count
     }
     
 
@@ -61,72 +57,60 @@ class FavoritesViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let c = itemStore.favoritesArray[indexPath.row]
-        switch c {
-            case is Place:
-                performSegue(withIdentifier: "favPlaceSegue", sender: indexPath.row)
-            case is Tour:
-                performSegue(withIdentifier: "favTourSegue", sender: indexPath.row)
-            case is Note:
-                performSegue(withIdentifier: "favNoteSegue", sender: indexPath.row)
-            default:
-                print("ohshit")
-        }
         
+        let favorite: Favorite = itemStore.favorites[indexPath.row]
+        
+        if favorite.type == "place" {
+            performSegue(withIdentifier: "favPlaceSegue", sender: indexPath.row)
+        }
+        else if favorite.type == "tour" {
+            performSegue(withIdentifier: "favTourSegue", sender: indexPath.row)
+        }
+        else if favorite.type == "note" {
+            performSegue(withIdentifier: "favNoteSegue", sender: indexPath.row)
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "favoriteCell", for: indexPath)    
-        let fav = itemStore.favoritesArray[indexPath.row]
+        let fav = itemStore.favorites[indexPath.row]
         
-        switch fav {
-        case is Tour:
+        if fav.type == "tour" {
+            let t: Tour = itemStore.getTour(uuid: fav.id)
             
-            let c : Tour = fav as! Tour
-            cell.textLabel?.text = c.title
-            if c.type == "audio" {
+            cell.textLabel?.text = t.title
+            if t.type == "audio" {
                 cell.imageView?.image = UIImage(named: "audio")
             } else {
                 cell.imageView?.image = UIImage(named: "video")
             }
             
             tableView.rowHeight = CGFloat(50)
-         
+            
             return cell
-            
-        case is Place:
+        }
+        else if fav.type == "place" {
             let cellplace = tableView.dequeueReusableCell(withIdentifier: "PlaceCell", for: indexPath) as! PlaceCell
-            let c : Place = fav as! Place
+            let p: Place = itemStore.getPlace(uuid: fav.id)
             
-            cellplace.CellLabel.text = c.title
-            cellplace.CellImage.image = UIImage(named: c.image)
+            cellplace.CellLabel.text = p.title
+            cellplace.CellImage.image = UIImage(named: p.image)
             
             tableView.rowHeight = CGFloat(100)
             
             return cellplace
-       
-        case is Note:
+        }
+        else if fav.type == "note" {
             let cellNote = tableView.dequeueReusableCell(withIdentifier: "PlaceCell", for: indexPath) as! PlaceCell
-            let note : Note = itemStore.favoritesArray[indexPath.row] as! Note
+            let note: Note = itemStore.getNote(uuid: fav.id)
             
             cellNote.CellLabel.text = note.title
             cellNote.CellImage.image = note.image
             tableView.rowHeight = CGFloat(100)
             return cellNote
-        default:
-            print("broken, should not be here")
-            
         }
-        /*
-         cell.textLabel?.text = .title
-         if tour.type == "audio" {
-         cell.imageView?.image = UIImage(named: "audio")
-         } else {
-         cell.imageView?.image = UIImage(named: "video")
-         }
-         */
-     
+        
         return cell
     }
     
@@ -149,7 +133,8 @@ class FavoritesViewController: UITableViewController {
             let deleteAction = UIAlertAction(title: "Delete", style: .destructive,
                                              handler: { (action) -> Void in
                                                 // Remove the item from the store
-                                                self.itemStore.removeFavorite(row: indexPath.row)
+                                                self.itemStore.favorites.remove(at: indexPath.row)
+                                                self.itemStore.syncData()
                                                 
                                                 // Also remove that row from the table view with an animation
                                                 self.tableView.deleteRows(at: [indexPath], with: .automatic)
@@ -164,32 +149,26 @@ class FavoritesViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "favPlaceSegue" {
             if let pvc = segue.destination as? PlaceViewController, let selectedRow = tableView.indexPathForSelectedRow?.row {
-                if let place : Place = itemStore.favoritesArray[selectedRow] as? Place{
-                    print(place.title)
-                    pvc.image = place.image
-                    pvc.body = place.body
-                    pvc.navTitle = place.title
-                    pvc.lat = place.lat
-                    pvc.lon = place.lon
-                    pvc.fav = place.fav
-                    print(place.body)
+                if let fav: Favorite = itemStore.favorites[selectedRow] {
+                    pvc.itemStore = itemStore
+                    pvc.place = itemStore.getPlace(uuid: fav.id)
                 }
             }
         }
         if segue.identifier == "favTourSegue" {
             if let tvc = segue.destination as? TourViewController, let selectedRow = tableView.indexPathForSelectedRow?.row {
-                    if let tour : Tour = itemStore.favoritesArray[selectedRow] as? Tour{
-                        print(tour.title)
-                    tvc.tourTitle = tour.title
-                    tvc.file = tour.file
+                if let fav: Favorite = itemStore.favorites[selectedRow] {
+                    tvc.itemStore = itemStore
+                    tvc.tour = itemStore.getTour(uuid: fav.id)
                 }
             }
         }
         if segue.identifier == "favNoteSegue" {
             if let nvc = segue.destination as? NoteViewController, let selectedRow = tableView.indexPathForSelectedRow?.row  {
-                nvc.itemStore = itemStore
-                nvc.note = itemStore.notes[selectedRow]
-                nvc.row = selectedRow
+                if let fav: Favorite = itemStore.favorites[selectedRow] {
+                    nvc.itemStore = itemStore
+                    nvc.note = itemStore.getNote(uuid: fav.id)
+                }
             } else {
                 let nvc = segue.destination as? NoteViewController
                 nvc?.itemStore = itemStore

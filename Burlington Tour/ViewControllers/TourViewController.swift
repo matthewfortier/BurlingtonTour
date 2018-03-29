@@ -11,51 +11,38 @@ import AVKit
 
 class TourViewController: AVPlayerViewController {
     var itemStore: ItemStore!
-    var row : Int = 0
-    var tourTitle: String!
-    var file: String!
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        
-        setFavoriteButton(filled: false)
-    }
+    var tour: Tour!
     
     func setFavoriteButton(filled: Bool) {
         var buttonIcon: UIImage!
         
         buttonIcon = filled ? UIImage(named: "fav-filled") : UIImage(named: "fav")
         
-        let rightBarButton = UIBarButtonItem(title: "Favorite", style: UIBarButtonItemStyle.done, target: self, action: #selector(PlaceViewController.addFavorite2))
+        let rightBarButton: UIBarButtonItem = UIBarButtonItem(title: "Favorite", style: UIBarButtonItemStyle.done, target: self, action: #selector(TourViewController.handleFavorite))
+        
         rightBarButton.image = buttonIcon
         
         self.navigationItem.rightBarButtonItem = rightBarButton
     }
     
-    
-    @objc func addFavorite2() {
-        if (itemStore.tours[row].fav){
-            
-            //sender.setTitle("Unfavorite", for: .normal)
-            itemStore.removeFavorite(row: row)
+    @objc func handleFavorite() {
+        if itemStore.isFavorite(uuid: tour.id) {
+            itemStore.removeFavorite(uuid: tour.id)
             setFavoriteButton(filled: false)
-            
-        }
-        else {
-            //fav = true
-            itemStore.addFavorite(newFav: itemStore.tours[row])
-            //sender.setTitle("Favorite", for: .normal)
+        } else {
+            itemStore.addFavorite(uuid: tour.id, type: "tour")
             setFavoriteButton(filled: true)
         }
     }
-
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = tourTitle
+        setFavoriteButton(filled: itemStore.isFavorite(uuid: tour.id))
         
-        guard let path = Bundle.main.path(forAuxiliaryExecutable: file) else {
+        self.navigationItem.title = tour.title
+        
+        guard let path = Bundle.main.path(forAuxiliaryExecutable: tour.file) else {
             debugPrint("video.m4v not found")
             return
         }

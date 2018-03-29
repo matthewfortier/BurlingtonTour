@@ -46,13 +46,7 @@ class PlacesTableViewController: UITableViewController {
         if segue.identifier == "placeDetailSegue" {
             if let pvc = segue.destination as? PlaceViewController, let selectedRow = tableView.indexPathForSelectedRow?.row {
                 pvc.itemStore = itemStore
-                pvc.row = selectedRow
-                pvc.image = itemStore.places[selectedRow].image
-                pvc.body = itemStore.places[selectedRow].body
-                pvc.navTitle = itemStore.places[selectedRow].title
-                pvc.lat = itemStore.places[selectedRow].lat
-                pvc.lon = itemStore.places[selectedRow].lon 
-                pvc.fav = itemStore.places[selectedRow].fav
+                pvc.place = itemStore.places[selectedRow]
             }
         }
     }

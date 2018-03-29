@@ -101,7 +101,6 @@ class NotesTableViewController: UITableViewController {
             if let nvc = segue.destination as? NoteViewController, let selectedRow = tableView.indexPathForSelectedRow?.row  {
                 nvc.itemStore = itemStore
                 nvc.note = itemStore.notes[selectedRow]
-                nvc.row = selectedRow
             } else {
                 let nvc = segue.destination as? NoteViewController
                 nvc?.itemStore = itemStore
