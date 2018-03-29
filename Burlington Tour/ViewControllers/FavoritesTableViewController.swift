@@ -106,8 +106,8 @@ class FavoritesViewController: UITableViewController {
             let note: Note = itemStore.getNote(uuid: fav.id)
             
             cellNote.CellLabel.text = note.title
-            cellNote.CellImage.image = note.image
-            tableView.rowHeight = CGFloat(100)
+            cellNote.CellImage.image = itemStore.getImage(filename: note.image)
+            tableView.rowHeight = CGFloat(75)
             return cellNote
         }
         

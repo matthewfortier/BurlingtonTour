@@ -62,9 +62,9 @@ class Note: NSObject, Item, NSCoding {
     var order = -1
     
     var body: String
-    var image: UIImage
+    var image: String
     
-    init(order: Int, title: String, file: UIImage, body: String) {
+    init(order: Int, title: String, file: String, body: String) {
         self.id = UUID().uuidString
         self.order = order
         self.title = title
@@ -87,7 +87,7 @@ class Note: NSObject, Item, NSCoding {
         self.title = aDecoder.decodeObject(forKey: "title") as! String
         self.order = aDecoder.decodeInteger(forKey: "order")
         self.body = aDecoder.decodeObject(forKey: "body") as! String
-        self.image = aDecoder.decodeObject(forKey: "image") as! UIImage
+        self.image = aDecoder.decodeObject(forKey: "image") as! String
     }
     
 }

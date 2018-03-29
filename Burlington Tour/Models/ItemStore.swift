@@ -24,7 +24,7 @@ class ItemStore {
         //fillFavorites()
     }
     
-    @discardableResult func createNote(title: String, image: UIImage, body: String) -> Note {
+    @discardableResult func createNote(title: String, image: String, body: String) -> Note {
         let newNote = Note(order: 0, title: title, file: image, body: body)
         notes.append(newNote)
         syncData()
@@ -42,7 +42,7 @@ class ItemStore {
         syncData()
     }
     
-    func updateNote(original: Note, title: String, image: UIImage, body: String) -> Note {
+    func updateNote(original: Note, title: String, image: String, body: String) -> Note {
         var note: Note!
         
         if let index = notes.index(of: original) {
@@ -225,5 +225,47 @@ class ItemStore {
                 }
             }
         }
+    }
+    
+    // Function borrowed from https://gist.github.com/marcelvoss/cf437ec5ef1d717c675dc9b0f35aa4cd
+    func uniqueFilename(withPrefix prefix: String? = nil) -> String {
+        let uniqueString = ProcessInfo.processInfo.globallyUniqueString
+        
+        if prefix != nil {
+            return "\(prefix!)-\(uniqueString)"
+        }
+        
+        return uniqueString
+    }
+    
+    // Functions borrowed from https://iosdevcenters.blogspot.com/2016/04/save-and-get-image-from-document.html
+    func getDirectoryPath() -> String {
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        let documentsDirectory = paths[0]
+        return documentsDirectory
+    }
+    
+    func saveImageDocumentDirectory(image: UIImage) -> String {
+        let filename = uniqueFilename() + ".jpg"
+        let fileManager = FileManager.default
+        let paths = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(filename)
+        //let image = UIImage(named: filename + ".jpg")
+        print(paths)
+        let imageData = UIImageJPEGRepresentation(image, 0.5)
+        fileManager.createFile(atPath: paths as String, contents: imageData, attributes: nil)
+        
+        return filename
+    }
+    
+    func getImage(filename: String) -> UIImage {
+        var image: UIImage!
+        let fileManager = FileManager.default
+        let imagePath = (self.getDirectoryPath() as NSString).appendingPathComponent(filename)
+        if fileManager.fileExists(atPath: imagePath){
+            image = UIImage(contentsOfFile: imagePath)!
+        }else{
+            print("No Image")
+        }
+        return image
     }
 }

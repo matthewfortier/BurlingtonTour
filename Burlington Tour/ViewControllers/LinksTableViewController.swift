@@ -36,19 +36,13 @@ class LinksTableViewController: UITableViewController {
     }
     
     @IBAction func createLink(_ sender: UIBarButtonItem) {
-        //1. Create the alert controller.
         let alert = UIAlertController(title: "Add Link", message: "Add title and link below", preferredStyle: .alert)
-        
-        //2. Add the text field. You can configure it however you need.
         alert.addTextField { (textField) in
             textField.placeholder = "Title..."
         }
-        
         alert.addTextField { (textField) in
             textField.text = "http://"
         }
-        
-        // 3. Grab the value from the text field, and print it when the user clicks OK.
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
             let title = alert?.textFields![0].text
             let url = alert?.textFields![1].text
@@ -57,6 +51,9 @@ class LinksTableViewController: UITableViewController {
                 self.itemStore.createLink(title: title!, url: url!)
                 self.tableView.reloadData()
             }
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: { [weak alert] (_) in
+            // Do nothing
         }))
         
         // 4. Present the alert.

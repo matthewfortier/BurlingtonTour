@@ -30,7 +30,7 @@ class NotesTableViewController: UITableViewController {
         
         let nib = UINib.init(nibName: "PlaceCell", bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: "PlaceCell")
-        tableView.rowHeight = CGFloat(100)
+        tableView.rowHeight = CGFloat(75)
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,7 +54,7 @@ class NotesTableViewController: UITableViewController {
         let note = itemStore.notes[indexPath.row]
         
         cell.CellLabel.text = note.title
-        cell.CellImage.image = note.image
+        cell.CellImage.image = itemStore.getImage(filename: note.image)
         
         return cell
     }

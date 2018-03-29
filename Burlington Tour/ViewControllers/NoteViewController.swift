@@ -14,6 +14,7 @@ class NoteViewController: UIViewController, UINavigationControllerDelegate, UIIm
     
     var itemStore: ItemStore!
     var image: UIImage!
+    var imagePath: String!
     
     var type: Int = 0
     var orignialTitle: String = ""
@@ -58,9 +59,9 @@ class NoteViewController: UIViewController, UINavigationControllerDelegate, UIIm
         if note != nil {
             setFavoriteButton(filled: itemStore.isFavorite(uuid: note.id))
             titleTextField.text = note.title
-            imageView.image = note.image
+            imageView.image = itemStore.getImage(filename: note.image)
+            imagePath = note.image
             bodyText.text = note.body
-            image = note.image
             
             type = 1
             self.navigationItem.title = note.title
@@ -71,8 +72,6 @@ class NoteViewController: UIViewController, UINavigationControllerDelegate, UIIm
         }
     }
 
-    
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -88,10 +87,12 @@ class NoteViewController: UIViewController, UINavigationControllerDelegate, UIIm
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [String : Any])
     {
-        print("Picked!")
         image = info[UIImagePickerControllerOriginalImage] as! UIImage
         imageView.contentMode = .scaleAspectFit
         imageView.image = image
+        
+        imagePath = itemStore.saveImageDocumentDirectory(image: image)
+        
         photoButton.setTitle("Change Photo", for: UIControlState.normal)
         dismiss(animated:true, completion: nil)
     }
@@ -101,9 +102,9 @@ class NoteViewController: UIViewController, UINavigationControllerDelegate, UIIm
     
     @IBAction func saveNote(_ sender: UIButton) {
         if type == 0 {
-            itemStore.createNote(title: titleTextField.text!, image: image, body: bodyText.text!)
+            itemStore.createNote(title: titleTextField.text!, image: imagePath, body: bodyText.text!)
         } else {
-            itemStore.updateNote(original: note, title: titleTextField.text!, image: image, body: bodyText.text!)
+            itemStore.updateNote(original: note, title: titleTextField.text!, image: imagePath, body: bodyText.text!)
         }
         navigationController?.popViewController(animated: true)
     }
