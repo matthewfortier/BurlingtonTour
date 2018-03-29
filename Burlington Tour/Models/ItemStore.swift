@@ -23,7 +23,12 @@ class ItemStore {
         loadUserData()
         //fillFavorites()
     }
-    
+    func loadFirstLinks(){
+        links.append(UserLink(order: -1, title: "Dealer", url: "https://www.dealer.com/"))
+        links.append(UserLink(order: -2, title: "MyWebGrocier", url: "http://mywebgrocer.com/"))
+        links.append(UserLink(order: -2, title: "Church Street", url: "https://www.churchstmarketplace.com/"))
+        
+    }
     @discardableResult func createNote(title: String, image: String, body: String) -> Note {
         let newNote = Note(order: 0, title: title, file: image, body: body)
         notes.append(newNote)
