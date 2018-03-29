@@ -428,38 +428,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="h78-YV-Cep">
-                                <rect key="frame" x="0.0" y="64" width="375" height="41"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Burlington Tours" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zQS-cM-whM">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="20.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="IlN-Kt-CWm"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Authors: Matthew Fortier and Morgan Seielstad" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zvA-YM-zE9">
-                                        <rect key="frame" x="0.0" y="20.5" width="375" height="20.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="200" id="4nT-ft-EyJ"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2th-Wu-r4N">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Burlington Tours  Authors: Matthew Fortier and Morgan Seielstad  Credits: Icons8, TripAdvisor, David Kopec, The Big Nerd Ranch, StackOverflow, Google Images, Champlain College</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="h78-YV-Cep" firstAttribute="top" secondItem="ly5-97-haI" secondAttribute="top" id="8aF-hc-6hF"/>
-                            <constraint firstItem="ly5-97-haI" firstAttribute="trailing" secondItem="h78-YV-Cep" secondAttribute="trailing" id="GWX-Kc-TVz"/>
-                            <constraint firstItem="ly5-97-haI" firstAttribute="bottom" secondItem="h78-YV-Cep" secondAttribute="bottom" id="MP4-Sb-gkd"/>
-                            <constraint firstItem="h78-YV-Cep" firstAttribute="leading" secondItem="ly5-97-haI" secondAttribute="leading" id="V3b-OZ-ljE"/>
-                            <constraint firstItem="h78-YV-Cep" firstAttribute="centerY" secondItem="ly5-97-haI" secondAttribute="centerY" id="XVB-9U-K3V"/>
-                            <constraint firstItem="h78-YV-Cep" firstAttribute="centerX" secondItem="ly5-97-haI" secondAttribute="centerX" id="jcy-XG-ydK"/>
+                            <constraint firstItem="2th-Wu-r4N" firstAttribute="centerX" secondItem="ly5-97-haI" secondAttribute="centerX" id="4Af-OR-kG7"/>
+                            <constraint firstItem="2th-Wu-r4N" firstAttribute="centerY" secondItem="ly5-97-haI" secondAttribute="centerY" id="9ZK-uP-19C"/>
+                            <constraint firstItem="2th-Wu-r4N" firstAttribute="top" secondItem="ly5-97-haI" secondAttribute="top" id="L2u-H7-c2Q"/>
+                            <constraint firstItem="ly5-97-haI" firstAttribute="bottom" secondItem="2th-Wu-r4N" secondAttribute="bottom" id="aqi-0x-J0r"/>
+                            <constraint firstItem="ly5-97-haI" firstAttribute="trailing" secondItem="2th-Wu-r4N" secondAttribute="trailing" id="hUj-N9-qiK"/>
+                            <constraint firstItem="2th-Wu-r4N" firstAttribute="leading" secondItem="ly5-97-haI" secondAttribute="leading" id="vQ0-EM-S6C"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ly5-97-haI"/>
                     </view>
