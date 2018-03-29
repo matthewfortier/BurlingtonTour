@@ -41,6 +41,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         notesController.itemStore = itemStore
         linksController.itemStore = itemStore
         favoritesController.itemStore = itemStore
+        
+        if !UserDefaults.standard.bool(forKey: "isFirstLaunch") {
+            print("here")
+            itemStore.loadFirstLinks()
+            UserDefaults.standard.set(true, forKey: "isFirstLaunch")
+            UserDefaults.standard.synchronize()
+        }
+        
         return true
     }
 
