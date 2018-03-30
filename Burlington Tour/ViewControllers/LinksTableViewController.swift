@@ -50,9 +50,7 @@ class LinksTableViewController: UITableViewController {
                 self.tableView.reloadData()
             }
         }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: { [weak alert] (_) in
-            // Do nothing
-        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
         
         // 4. Present the alert.
         self.present(alert, animated: true, completion: nil)

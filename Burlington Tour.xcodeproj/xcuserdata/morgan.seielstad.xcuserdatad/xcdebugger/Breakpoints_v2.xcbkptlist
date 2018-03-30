@@ -279,23 +279,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Burlington Tour/Models/ItemStore.swift"
-            timestampString = "544069775.635608"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "166"
-            endingLineNumber = "166"
-            landmarkName = "getPlace(uuid:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Burlington Tour/Models/ItemStore.swift"
-            timestampString = "544069775.635644"
+            timestampString = "544070200.529906"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "122"

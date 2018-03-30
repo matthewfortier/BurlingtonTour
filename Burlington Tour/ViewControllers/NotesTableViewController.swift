@@ -52,7 +52,9 @@ class NotesTableViewController: UITableViewController {
         let note = itemStore.notes[indexPath.row]
         
         cell.CellLabel.text = note.title
-        cell.CellImage.image = itemStore.getImage(filename: note.image)
+        if note.image != "" {
+            cell.CellImage.image = itemStore.getImage(filename: note.image)
+        }
         
         return cell
     }

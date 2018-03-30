@@ -14,7 +14,7 @@ class NoteViewController: UIViewController, UINavigationControllerDelegate, UIIm
     
     var itemStore: ItemStore!
     var image: UIImage!
-    var imagePath: String!
+    var imagePath: String = ""
     
     var type: Int = 0
     
@@ -55,10 +55,14 @@ class NoteViewController: UIViewController, UINavigationControllerDelegate, UIIm
 
         imagePicker.delegate = self
         
+        // If editing a note, fill in the UI elements
         if note != nil {
             setFavoriteButton(filled: itemStore.isFavorite(uuid: note.id))
             titleTextField.text = note.title
-            imageView.image = itemStore.getImage(filename: note.image)
+            // If there is an image associated, set it
+            if note.image != "" {
+                imageView.image = itemStore.getImage(filename: note.image)
+            }
             imagePath = note.image
             bodyText.text = note.body
             
@@ -75,6 +79,7 @@ class NoteViewController: UIViewController, UINavigationControllerDelegate, UIIm
         // Dispose of any resources that can be recreated.
     }
     
+    // Allow the opening of the photo gallery
     @IBAction func openPhotoGallery(_ sender: UIButton) {
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .photoLibrary
@@ -82,18 +87,24 @@ class NoteViewController: UIViewController, UINavigationControllerDelegate, UIIm
         present(imagePicker, animated: true, completion: nil)
     }
     
+    // When the photo has been selected
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [String : Any])
     {
+        // Get selected image
         image = info[UIImagePickerControllerOriginalImage] as! UIImage
         imageView.contentMode = .scaleAspectFit
+        // Set image in UI
         imageView.image = image
         
+        // Save image to the documents folder
         imagePath = itemStore.saveImageDocumentDirectory(image: image)
         
+        // Change the button to Change Photo
         photoButton.setTitle("Change Photo", for: UIControlState.normal)
         dismiss(animated:true, completion: nil)
     }
+    
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }

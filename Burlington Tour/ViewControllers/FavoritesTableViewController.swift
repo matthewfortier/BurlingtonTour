@@ -12,7 +12,8 @@ class FavoritesViewController: UITableViewController {
     
     var itemStore: ItemStore!
    
-//  https://www.andrewcbancroft.com/2015/03/17/basics-of-pull-to-refresh-for-swift-developers/
+    //  https://www.andrewcbancroft.com/2015/03/17/basics-of-pull-to-refresh-for-swift-developers/
+    //  Used for pull to refresh in favorites tableviewcontroller
     @IBAction func refresh(_ sender: UIRefreshControl) {
         self.tableView.reloadData()
         refreshControl?.endRefreshing()
@@ -21,20 +22,23 @@ class FavoritesViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Set the BarButtonItems and register the tableviewcells
         self.refreshControl?.addTarget(self, action: #selector(FavoritesViewController.refresh(_:)), for: UIControlEvents.valueChanged)
         navigationItem.leftBarButtonItem = editButtonItem
         let nib = UINib.init(nibName: "PlaceCell", bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: "PlaceCell")
-        //tableView.rowHeight = CGFloat(100)
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         
+        // Reload data on willappear and showing the edit button if there are any favorites
         tableView.reloadData()
         if itemStore.favorites.count > 0 {
             navigationItem.leftBarButtonItem = editButtonItem
         }
    
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -51,7 +55,7 @@ class FavoritesViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        // Getting the favories and performing the correct segue based on the type
         let favorite: Favorite = itemStore.favorites[indexPath.row]
         
         if favorite.type == "place" {
@@ -66,7 +70,7 @@ class FavoritesViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        // Getting the cell and the favorite and populating the appropriate cell based on type
         let cell = tableView.dequeueReusableCell(withIdentifier: "favoriteCell", for: indexPath)    
         let fav = itemStore.favorites[indexPath.row]
         
@@ -120,10 +124,8 @@ class FavoritesViewController: UITableViewController {
     override func tableView(_ tableView: UITableView,
                             commit editingStyle: UITableViewCellEditingStyle,
                             forRowAt indexPath: IndexPath) {
-        // If the table view is asking to commit a delete command...
+        // Setting up the alert controller for deleting a favorite
         if editingStyle == .delete {
-                      
-     
             let message = "Are you sure you want to delete this item?"
             
             let ac = UIAlertController(title: title,
@@ -135,12 +137,12 @@ class FavoritesViewController: UITableViewController {
             
             let deleteAction = UIAlertAction(title: "Delete", style: .destructive,
                                              handler: { (action) -> Void in
-                                                // Remove the item from the store
-                                                self.itemStore.favorites.remove(at: indexPath.row)
-                                                self.itemStore.syncData()
-                                                
-                                                // Also remove that row from the table view with an animation
-                                                self.tableView.deleteRows(at: [indexPath], with: .automatic)
+                // Remove the item from the store
+                self.itemStore.favorites.remove(at: indexPath.row)
+                self.itemStore.syncData()
+                
+                // Also remove that row from the table view with an animation
+                self.tableView.deleteRows(at: [indexPath], with: .automatic)
             })
             ac.addAction(deleteAction)
             
@@ -150,6 +152,7 @@ class FavoritesViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Prepare for segue depending on type of favorite selected
         if segue.identifier == "favPlaceSegue" {
             if let pvc = segue.destination as? PlaceViewController, let selectedRow = tableView.indexPathForSelectedRow?.row {
                 let fav: Favorite = itemStore.favorites[selectedRow]
