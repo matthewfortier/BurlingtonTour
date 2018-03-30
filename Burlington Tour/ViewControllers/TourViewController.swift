@@ -42,11 +42,14 @@ class TourViewController: AVPlayerViewController {
         
         self.navigationItem.title = tour.title
         
+        // Get path of av file
         guard let path = Bundle.main.path(forAuxiliaryExecutable: tour.file) else {
-            debugPrint("video.m4v not found")
+            debugPrint("Could not load av file")
             return
         }
+        //Assign the filepath to the av player
         self.player = AVPlayer(url: URL(fileURLWithPath: path))
+        // Play file
         self.player?.play()
     }
 
@@ -55,15 +58,4 @@ class TourViewController: AVPlayerViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

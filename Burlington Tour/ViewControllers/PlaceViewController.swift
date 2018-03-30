@@ -20,6 +20,7 @@ class PlaceViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     var itemStore: ItemStore!
     var place: Place!
     
+    // Set the favorite bar button icon and hook up the helper function
     func setFavoriteButton(filled: Bool) {
         var buttonIcon: UIImage!
         
@@ -32,6 +33,7 @@ class PlaceViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         self.navigationItem.rightBarButtonItem = rightBarButton
     }
     
+    // Switches the icon and adds or removes the favorite
     @objc func handleFavorite() {
         if itemStore.isFavorite(uuid: place.id) {
             itemStore.removeFavorite(uuid: place.id)
@@ -45,6 +47,7 @@ class PlaceViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Set the favorite button based on the current place
         setFavoriteButton(filled: itemStore.isFavorite(uuid: place.id))
         
         Image.image = UIImage(named: place.image)
@@ -52,10 +55,12 @@ class PlaceViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         
         self.navigationItem.title = place.title
         
+        // Create the map annotation with provided latitude and longitude
         let annotation = MKPointAnnotation()
         annotation.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(place.lat), longitude: CLLocationDegrees(place.lon))
         Map.addAnnotation(annotation)
         
+        // Show the annotations
         Map.showAnnotations(Map.annotations, animated: true)
         // Do any additional setup after loading the view.
     }

@@ -15,6 +15,7 @@ class PlacesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Registering the place cell and setting the row height
         let nib = UINib.init(nibName: "PlaceCell", bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: "PlaceCell")
         tableView.rowHeight = CGFloat(100)
