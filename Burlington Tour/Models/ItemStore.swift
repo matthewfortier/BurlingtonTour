@@ -24,13 +24,13 @@ class ItemStore {
         //fillFavorites()
     }
     func loadFirstLinks(){
-        links.append(UserLink(order: -1, title: "Dealer", url: "https://www.dealer.com/"))
-        links.append(UserLink(order: -2, title: "MyWebGrocier", url: "http://mywebgrocer.com/"))
-        links.append(UserLink(order: -2, title: "Church Street", url: "https://www.churchstmarketplace.com/"))
+        links.append(UserLink(title: "Dealer", url: "https://www.dealer.com/"))
+        links.append(UserLink(title: "MyWebGrocier", url: "http://mywebgrocer.com/"))
+        links.append(UserLink(title: "Church Street", url: "https://www.churchstmarketplace.com/"))
         
     }
     @discardableResult func createNote(title: String, image: String, body: String) -> Note {
-        let newNote = Note(order: 0, title: title, file: image, body: body)
+        let newNote = Note(title: title, file: image, body: body)
         notes.append(newNote)
         syncData()
         return newNote
@@ -71,7 +71,7 @@ class ItemStore {
     }
     
     @discardableResult func createLink(title: String, url: String) -> UserLink {
-        let newLink = UserLink(order: 0, title: title, url: url)
+        let newLink = UserLink(title: title, url: url)
         links.append(newLink)
         syncData()
         return newLink
@@ -200,14 +200,13 @@ class ItemStore {
                 for item in 0..<Array(dict).count {
                     if let p = dict[String(item)] as? [String:AnyObject],
                         let id = p["id"] as? String,
-                        let order = p["order"] as? Int,
                         let title = p["title"] as? String,
                         let image = p["image"] as? String,
                         let body = p["body"] as? String,
                         let lat = p["lat"] as? Float,
                         let lon = p["lon"] as? Float{
                         
-                        place = Place(id: id, order: order, title: title, body: body, image: image, lat: lat, lon: lon)
+                        place = Place(id: id, title: title, body: body, image: image, lat: lat, lon: lon)
                         places.append(place)
                     }
                 }
@@ -222,12 +221,11 @@ class ItemStore {
                 for item in 0..<Array(dict).count {
                     if let p = dict[String(item)] as? [String:AnyObject],
                         let id = p["id"] as? String,
-                        let order = p["order"] as? Int,
                         let title = p["title"] as? String,
                         let file = p["file"] as? String,
                         let type = p["type"] as? String {
                         
-                        tour = Tour(id: id, order: order, title: title, file: file, type: type)
+                        tour = Tour(id: id, title: title, file: file, type: type)
                         tours.append(tour)
                     }
                 }
@@ -272,7 +270,7 @@ class ItemStore {
         if fileManager.fileExists(atPath: imagePath){
             image = UIImage(contentsOfFile: imagePath)!
         }else{
-            print("No Image")
+            return UIImage(named: "")!
         }
         return image
     }

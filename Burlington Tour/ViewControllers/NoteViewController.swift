@@ -14,7 +14,7 @@ class NoteViewController: UIViewController, UINavigationControllerDelegate, UIIm
     
     var itemStore: ItemStore!
     var image: UIImage!
-    var imagePath: String!
+    var imagePath: String = ""
     
     var type: Int = 0
     
@@ -58,7 +58,9 @@ class NoteViewController: UIViewController, UINavigationControllerDelegate, UIIm
         if note != nil {
             setFavoriteButton(filled: itemStore.isFavorite(uuid: note.id))
             titleTextField.text = note.title
-            imageView.image = itemStore.getImage(filename: note.image)
+            if note.image != "" {
+                imageView.image = itemStore.getImage(filename: note.image)
+            }
             imagePath = note.image
             bodyText.text = note.body
             
@@ -94,6 +96,7 @@ class NoteViewController: UIViewController, UINavigationControllerDelegate, UIIm
         photoButton.setTitle("Change Photo", for: UIControlState.normal)
         dismiss(animated:true, completion: nil)
     }
+    
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }

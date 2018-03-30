@@ -25,8 +25,8 @@ class FavoritesViewController: UITableViewController {
         navigationItem.leftBarButtonItem = editButtonItem
         let nib = UINib.init(nibName: "PlaceCell", bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: "PlaceCell")
-        //tableView.rowHeight = CGFloat(100)
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         
         tableView.reloadData()
@@ -35,6 +35,7 @@ class FavoritesViewController: UITableViewController {
         }
    
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -111,7 +112,6 @@ class FavoritesViewController: UITableViewController {
     override func tableView(_ tableView: UITableView,
                             commit editingStyle: UITableViewCellEditingStyle,
                             forRowAt indexPath: IndexPath) {
-        // If the table view is asking to commit a delete command...
         if editingStyle == .delete {
                       
      

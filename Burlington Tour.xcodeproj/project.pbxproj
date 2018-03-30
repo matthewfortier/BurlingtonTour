@@ -12,6 +12,11 @@
 		1A0C3FB4206189E8006AC1FF /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0C3FB2206189E8006AC1FF /* PlaceCell.swift */; };
 		1A0C3FB5206189E8006AC1FF /* PlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A0C3FB3206189E8006AC1FF /* PlaceCell.xib */; };
 		1A120D52206D888800F2CC42 /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A120D51206D888700F2CC42 /* FavoritesTableViewController.swift */; };
+		1A20C353206DBA020030AA26 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A20C352206DBA020030AA26 /* Place.swift */; };
+		1A20C355206DBA0B0030AA26 /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A20C354206DBA0B0030AA26 /* Favorite.swift */; };
+		1A20C357206DBA710030AA26 /* UserLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A20C356206DBA710030AA26 /* UserLink.swift */; };
+		1A20C359206DBA8E0030AA26 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A20C358206DBA8E0030AA26 /* Note.swift */; };
+		1A20C35B206DBAAA0030AA26 /* Tour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A20C35A206DBAAA0030AA26 /* Tour.swift */; };
 		1A30C1A1204F4D2100828FF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A30C1A0204F4D2100828FF1 /* AppDelegate.swift */; };
 		1A30C1A8204F4D2100828FF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A30C1A6204F4D2100828FF1 /* Main.storyboard */; };
 		1A30C1AA204F4D2100828FF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A30C1A9204F4D2100828FF1 /* Assets.xcassets */; };
@@ -51,6 +56,11 @@
 		1A0C3FB2206189E8006AC1FF /* PlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
 		1A0C3FB3206189E8006AC1FF /* PlaceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceCell.xib; sourceTree = "<group>"; };
 		1A120D51206D888700F2CC42 /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
+		1A20C352206DBA020030AA26 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		1A20C354206DBA0B0030AA26 /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
+		1A20C356206DBA710030AA26 /* UserLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLink.swift; sourceTree = "<group>"; };
+		1A20C358206DBA8E0030AA26 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		1A20C35A206DBAAA0030AA26 /* Tour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tour.swift; sourceTree = "<group>"; };
 		1A30C19D204F4D2100828FF1 /* Burlington Tour.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Burlington Tour.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A30C1A0204F4D2100828FF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A30C1A7204F4D2100828FF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -182,6 +192,11 @@
 			children = (
 				1ACFCA3C2060A66000A749B7 /* ItemStore.swift */,
 				1ACFCA382060A23200A749B7 /* Item.swift */,
+				1A20C352206DBA020030AA26 /* Place.swift */,
+				1A20C354206DBA0B0030AA26 /* Favorite.swift */,
+				1A20C356206DBA710030AA26 /* UserLink.swift */,
+				1A20C358206DBA8E0030AA26 /* Note.swift */,
+				1A20C35A206DBAAA0030AA26 /* Tour.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -309,17 +324,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A20C355206DBA0B0030AA26 /* Favorite.swift in Sources */,
 				1ACFCA392060A23200A749B7 /* Item.swift in Sources */,
 				1A120D52206D888800F2CC42 /* FavoritesTableViewController.swift in Sources */,
 				1AC9C7872060B17900DB5D40 /* PlacesTableViewController.swift in Sources */,
+				1A20C359206DBA8E0030AA26 /* Note.swift in Sources */,
 				1A0BFB612061BAA000165837 /* ToursTableViewController.swift in Sources */,
 				1A30C1A1204F4D2100828FF1 /* AppDelegate.swift in Sources */,
+				1A20C357206DBA710030AA26 /* UserLink.swift in Sources */,
+				1A20C353206DBA020030AA26 /* Place.swift in Sources */,
 				1A6ABE9020642CDA00534B6D /* TourViewController.swift in Sources */,
 				1AEC4E6D206AD120000AD1DA /* LinksTableViewController.swift in Sources */,
 				1AC9C78B2060B8F200DB5D40 /* PlaceViewController.swift in Sources */,
 				1ACFCA3D2060A66000A749B7 /* ItemStore.swift in Sources */,
 				1A6ABE922064304100534B6D /* NotesTableViewController.swift in Sources */,
 				1A6ABE96206437AE00534B6D /* NoteViewController.swift in Sources */,
+				1A20C35B206DBAAA0030AA26 /* Tour.swift in Sources */,
 				1A0C3FB4206189E8006AC1FF /* PlaceCell.swift in Sources */,
 				1ABED614206AE6AB00054E0D /* CreditsViewController.swift in Sources */,
 			);

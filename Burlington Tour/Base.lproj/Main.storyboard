@@ -88,68 +88,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QRR-Kp-eih">
-                                <rect key="frame" x="0.0" y="64" width="375" height="510"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="8cO-cB-sMx">
+                                <rect key="frame" x="0.0" y="64" width="375" height="150"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="RlH-tP-cWN">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
-                                        <subviews>
-                                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="eIH-UD-M6S">
-                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="150"/>
-                                            </mapView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="burlington-bike-path.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="50a-YC-avG">
-                                                <rect key="frame" x="187.5" y="0.0" width="187.5" height="150"/>
-                                            </imageView>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="150" id="fak-KU-snZ"/>
-                                        </constraints>
-                                    </stackView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="daM-cF-ptt">
-                                        <rect key="frame" x="0.0" y="150" width="375" height="444"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="I50-cV-v8p">
+                                        <rect key="frame" x="0.0" y="0.0" width="187.5" height="150"/>
+                                    </imageView>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Jw3-Cp-9Ig">
+                                        <rect key="frame" x="187.5" y="0.0" width="187.5" height="150"/>
+                                    </mapView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="RlH-tP-cWN" firstAttribute="centerX" secondItem="QRR-Kp-eih" secondAttribute="centerX" id="UnM-3F-HG2"/>
-                                    <constraint firstItem="RlH-tP-cWN" firstAttribute="leading" secondItem="QRR-Kp-eih" secondAttribute="leading" id="Vy2-f8-qsC"/>
-                                    <constraint firstAttribute="trailing" secondItem="RlH-tP-cWN" secondAttribute="trailing" id="WQE-ys-E6d"/>
-                                    <constraint firstItem="RlH-tP-cWN" firstAttribute="top" secondItem="QRR-Kp-eih" secondAttribute="top" id="iKH-xc-Un5"/>
-                                    <constraint firstItem="daM-cF-ptt" firstAttribute="trailing" secondItem="RlH-tP-cWN" secondAttribute="trailing" id="jTS-g7-JPC"/>
-                                    <constraint firstAttribute="bottom" secondItem="RlH-tP-cWN" secondAttribute="bottom" constant="444" id="kKm-Zs-NY1"/>
-                                    <constraint firstAttribute="bottom" secondItem="daM-cF-ptt" secondAttribute="bottom" id="klf-Ik-e5C"/>
-                                    <constraint firstItem="daM-cF-ptt" firstAttribute="top" secondItem="RlH-tP-cWN" secondAttribute="bottom" id="sNJ-2Z-TQz"/>
-                                    <constraint firstItem="daM-cF-ptt" firstAttribute="leading" secondItem="RlH-tP-cWN" secondAttribute="leading" id="t0L-tu-Ra9"/>
+                                    <constraint firstAttribute="height" constant="150" id="Koy-tc-Muw"/>
                                 </constraints>
-                            </scrollView>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="GL4-Uc-d03">
-                                <rect key="frame" x="10" y="121" width="110" height="200"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </stackView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l5e-tZ-Ufa">
+                                <rect key="frame" x="0.0" y="214" width="375" height="360"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="QRR-Kp-eih" firstAttribute="centerX" secondItem="nSg-oa-geS" secondAttribute="centerX" id="2n1-80-27g"/>
-                            <constraint firstItem="QRR-Kp-eih" firstAttribute="centerY" secondItem="nSg-oa-geS" secondAttribute="centerY" id="QgZ-hy-LZl"/>
-                            <constraint firstItem="QRR-Kp-eih" firstAttribute="top" secondItem="nSg-oa-geS" secondAttribute="top" id="clo-AT-MNd"/>
-                            <constraint firstItem="nSg-oa-geS" firstAttribute="trailing" secondItem="QRR-Kp-eih" secondAttribute="trailing" id="gIB-c7-855"/>
+                            <constraint firstItem="l5e-tZ-Ufa" firstAttribute="centerX" secondItem="nSg-oa-geS" secondAttribute="centerX" id="4SC-aZ-Bdr"/>
+                            <constraint firstItem="nSg-oa-geS" firstAttribute="trailing" secondItem="l5e-tZ-Ufa" secondAttribute="trailing" id="Anf-Ja-S5v"/>
+                            <constraint firstItem="8cO-cB-sMx" firstAttribute="top" secondItem="nSg-oa-geS" secondAttribute="top" id="LTz-W3-LYp"/>
+                            <constraint firstItem="nSg-oa-geS" firstAttribute="bottom" secondItem="l5e-tZ-Ufa" secondAttribute="bottom" id="S6G-XD-uVf"/>
+                            <constraint firstItem="8cO-cB-sMx" firstAttribute="centerX" secondItem="nSg-oa-geS" secondAttribute="centerX" id="YW0-3V-1yp"/>
+                            <constraint firstItem="l5e-tZ-Ufa" firstAttribute="top" secondItem="8cO-cB-sMx" secondAttribute="bottom" id="fiE-go-1ZN"/>
+                            <constraint firstItem="l5e-tZ-Ufa" firstAttribute="leading" secondItem="nSg-oa-geS" secondAttribute="leading" id="iFV-Fi-guU"/>
+                            <constraint firstItem="8cO-cB-sMx" firstAttribute="leading" secondItem="nSg-oa-geS" secondAttribute="leading" id="ndz-np-LkJ"/>
+                            <constraint firstItem="nSg-oa-geS" firstAttribute="trailing" secondItem="8cO-cB-sMx" secondAttribute="trailing" id="vsp-n0-QFv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nSg-oa-geS"/>
                     </view>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="Body" destination="daM-cF-ptt" id="H1p-JX-P8b"/>
-                        <outlet property="Image" destination="50a-YC-avG" id="ipz-TE-QE1"/>
-                        <outlet property="Map" destination="eIH-UD-M6S" id="PlH-8U-9nV"/>
+                        <outlet property="Body" destination="l5e-tZ-Ufa" id="8nw-pd-Lva"/>
+                        <outlet property="Image" destination="I50-cV-v8p" id="a7J-z7-drv"/>
+                        <outlet property="Map" destination="Jw3-Cp-9Ig" id="MKG-vm-lBU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4du-OP-ghq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2529" y="-1258"/>
+            <point key="canvasLocation" x="2528.8000000000002" y="-1258.0209895052474"/>
         </scene>
         <!--Tours Nav Controller-->
         <scene sceneID="63H-Jf-sNX">
@@ -528,7 +513,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="burlington-bike-path.jpg" width="1024" height="561"/>
         <image name="links" width="20" height="20"/>
         <image name="notes" width="20" height="20"/>
         <image name="sights" width="20" height="20"/>
