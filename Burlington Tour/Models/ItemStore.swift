@@ -62,6 +62,8 @@ class ItemStore {
     }
     
     func removeNote(_ note: Note) {
+        removeFavorite(uuid: note.id)
+        
         if let index = notes.index(of: note) {
             notes.remove(at: index)
         }
@@ -87,10 +89,11 @@ class ItemStore {
     }
     
     func removeLink(_ link: UserLink) {
+        removeFavorite(uuid: link.id)
+        
         if let index = links.index(of: link) {
             links.remove(at: index)
         }
-        
         syncData()
     }
     

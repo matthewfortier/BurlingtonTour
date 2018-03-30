@@ -30,7 +30,9 @@ class FavoritesViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         
         tableView.reloadData()
-        //itemStore.loadFavorites()
+        if itemStore.favorites.count > 0 {
+            navigationItem.leftBarButtonItem = editButtonItem
+        }
    
     }
     override func didReceiveMemoryWarning() {
@@ -42,17 +44,9 @@ class FavoritesViewController: UITableViewController {
         return itemStore.favorites.count
     }
     
-
-    /*
-     
-     We need the following function to be able to segue to the proper view from the cell type.... this should be possible if we can check the id.  trickier if we have to mangle the cells.
-     
-     */
-    
     override func tableView(_ tableView: UITableView,
                             moveRowAt sourceIndexPath: IndexPath,
                             to destinationIndexPath: IndexPath) {
-        // Update the model
         itemStore.moveFavorite(from: sourceIndexPath.row, to: destinationIndexPath.row)
     }
     
@@ -149,26 +143,23 @@ class FavoritesViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "favPlaceSegue" {
             if let pvc = segue.destination as? PlaceViewController, let selectedRow = tableView.indexPathForSelectedRow?.row {
-                if let fav: Favorite = itemStore.favorites[selectedRow] {
-                    pvc.itemStore = itemStore
-                    pvc.place = itemStore.getPlace(uuid: fav.id)
-                }
+                let fav: Favorite = itemStore.favorites[selectedRow]
+                pvc.itemStore = itemStore
+                pvc.place = itemStore.getPlace(uuid: fav.id)
             }
         }
         if segue.identifier == "favTourSegue" {
             if let tvc = segue.destination as? TourViewController, let selectedRow = tableView.indexPathForSelectedRow?.row {
-                if let fav: Favorite = itemStore.favorites[selectedRow] {
-                    tvc.itemStore = itemStore
-                    tvc.tour = itemStore.getTour(uuid: fav.id)
-                }
+                let fav: Favorite = itemStore.favorites[selectedRow]
+                tvc.itemStore = itemStore
+                tvc.tour = itemStore.getTour(uuid: fav.id)
             }
         }
         if segue.identifier == "favNoteSegue" {
             if let nvc = segue.destination as? NoteViewController, let selectedRow = tableView.indexPathForSelectedRow?.row  {
-                if let fav: Favorite = itemStore.favorites[selectedRow] {
-                    nvc.itemStore = itemStore
-                    nvc.note = itemStore.getNote(uuid: fav.id)
-                }
+                let fav: Favorite = itemStore.favorites[selectedRow]
+                nvc.itemStore = itemStore
+                nvc.note = itemStore.getNote(uuid: fav.id)
             } else {
                 let nvc = segue.destination as? NoteViewController
                 nvc?.itemStore = itemStore

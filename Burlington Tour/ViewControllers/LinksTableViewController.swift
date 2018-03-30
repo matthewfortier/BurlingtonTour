@@ -13,14 +13,11 @@ class LinksTableViewController: UITableViewController {
 
     var itemStore: ItemStore!
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        
-        navigationItem.leftBarButtonItem = editButtonItem
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
+        if itemStore.links.count > 0 {
+            navigationItem.leftBarButtonItem = editButtonItem
+        }
     }
     
     override func viewDidLoad() {

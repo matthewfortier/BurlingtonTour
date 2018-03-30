@@ -17,7 +17,6 @@ class NoteViewController: UIViewController, UINavigationControllerDelegate, UIIm
     var imagePath: String!
     
     var type: Int = 0
-    var orignialTitle: String = ""
     
     var fav : Bool = false
     var chosenImage: UIImage!
@@ -65,10 +64,9 @@ class NoteViewController: UIViewController, UINavigationControllerDelegate, UIIm
             
             type = 1
             self.navigationItem.title = note.title
-            orignialTitle = note.title
             photoButton.setTitle("Change Photo", for: UIControlState.normal)
         } else {
-            setFavoriteButton(filled: false)
+            //setFavoriteButton(filled: false)
         }
     }
 
