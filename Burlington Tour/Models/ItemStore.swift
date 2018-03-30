@@ -150,6 +150,17 @@ class ItemStore {
         return note
     }
     
+    func getLink(uuid: String) -> UserLink {
+        var link: UserLink!
+        for n in links {
+            if n.id == uuid {
+                link = n
+                break
+            }
+        }
+        return link
+    }
+    
     func getPlace(uuid: String) -> Place {
         var place: Place!
         for p in places {
@@ -170,7 +181,18 @@ class ItemStore {
     }
 
     @objc func addFavorite(uuid: String, type: String) {
-        favorites.append(Favorite(id: uuid, type: type))
+        if (type == "link"){
+            for i in 0...favorites.count {
+                if (uuid == favorites[i].id) {
+                    return
+                }
+                else{
+                    favorites.append(Favorite(id: uuid, type: type))
+                }
+            }
+        }else {
+            favorites.append(Favorite(id: uuid, type: type))
+        }
         syncData()
     }
     

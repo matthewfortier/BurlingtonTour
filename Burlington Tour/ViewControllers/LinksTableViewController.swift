@@ -40,6 +40,7 @@ class LinksTableViewController: UITableViewController {
         alert.addTextField { (textField) in
             textField.text = "http://"
         }
+        
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
             let title = alert?.textFields![0].text
             let url = alert?.textFields![1].text
@@ -91,16 +92,16 @@ class LinksTableViewController: UITableViewController {
             let item = itemStore.links[indexPath.row]
             
             
-            let title = "Delete \(item.title)?"
-            let message = "Are you sure you want to delete this item?"
+            let title = "Delete or Favorite \(item.title)?"
+            let message = "Choose one action?"
+            
+            
             
             let ac = UIAlertController(title: title,
                                        message: message,
                                        preferredStyle: .actionSheet)
             
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-            ac.addAction(cancelAction)
-            
+            ac.addAction(UIAlertAction(title: "Favorite", style: .default, handler: {(alert: UIAlertAction!) in self.itemStore.addFavorite(uuid: self.itemStore.links[indexPath.row].id, type: "link")}))
             let deleteAction = UIAlertAction(title: "Delete", style: .destructive,
                                              handler: { (action) -> Void in
                                                 // Remove the item from the store
@@ -111,15 +112,19 @@ class LinksTableViewController: UITableViewController {
             })
             ac.addAction(deleteAction)
             
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            ac.addAction(cancelAction)
+            
+           
+            
             // Present the alert controller
             present(ac, animated: true, completion: nil)
         }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         
     }
-    
+ 
+
     @IBAction func unwindToTableView(segue:UIStoryboardSegue) {
         tableView.reloadData()
     }

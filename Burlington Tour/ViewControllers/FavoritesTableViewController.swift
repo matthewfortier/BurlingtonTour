@@ -104,6 +104,15 @@ class FavoritesViewController: UITableViewController {
             tableView.rowHeight = CGFloat(75)
             return cellNote
         }
+        else if fav.type == "link" {
+            let cellLink = tableView.dequeueReusableCell(withIdentifier: "LinkCell", for: indexPath)
+            let link: UserLink = itemStore.getLink(uuid: fav.id)
+            
+            cellLink.textLabel?.text = link.title
+            cellLink.imageView?.image = UIImage(named: "links")
+            tableView.rowHeight = CGFloat(50)
+            return cellLink
+        }
         
         return cell
     }

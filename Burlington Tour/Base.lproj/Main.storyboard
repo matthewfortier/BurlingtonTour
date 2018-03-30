@@ -502,6 +502,14 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LinkCell" id="LOr-2G-mJs">
+                                <rect key="frame" x="0.0" y="160" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LOr-2G-mJs" id="nty-le-pTy">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="YID-60-ctb" id="FaV-XU-EvA"/>
@@ -537,8 +545,8 @@
         <image name="video" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3tz-L7-X82"/>
-        <segue reference="WO6-Z3-S9f"/>
-        <segue reference="NMj-sv-2XU"/>
+        <segue reference="dYh-v0-4J9"/>
+        <segue reference="qhY-qF-eds"/>
+        <segue reference="7uh-De-daK"/>
     </inferredMetricsTieBreakers>
 </document>
