@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SafariServices
 class FavoritesViewController: UITableViewController {
     
     var itemStore: ItemStore!
@@ -66,6 +66,12 @@ class FavoritesViewController: UITableViewController {
         }
         else if favorite.type == "note" {
             performSegue(withIdentifier: "favNoteSegue", sender: indexPath.row)
+        }
+        else if favorite.type == "link" {
+            let link = itemStore.links[indexPath.row]
+            let svc = SFSafariViewController(url: URL(string:link.url)!)
+            self.present(svc, animated: true, completion: nil)
+            
         }
     }
     
