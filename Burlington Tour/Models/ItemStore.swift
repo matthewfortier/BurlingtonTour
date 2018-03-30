@@ -183,13 +183,8 @@ class ItemStore {
 
     @objc func addFavorite(uuid: String, type: String) {
         if (type == "link"){
-            for i in 0...favorites.count {
-                if (uuid == favorites[i].id) {
-                    return
-                }
-                else{
-                    favorites.append(Favorite(id: uuid, type: type))
-                }
+            if !isFavorite(uuid: uuid){
+            favorites.append(Favorite(id: uuid, type: type))
             }
         }else {
             favorites.append(Favorite(id: uuid, type: type))
